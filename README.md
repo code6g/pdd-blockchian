@@ -5,7 +5,6 @@
 
 #### 系统演示
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/131921_c93ba992_5537651.png "2020-09-12_114135.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132050_4732d5bc_5537651.png "2020-09-12_113954.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132100_7e6fe132_5537651.png "2020-09-12_114002.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132118_e8f4f661_5537651.png "2020-09-12_114008.png")
