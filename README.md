@@ -3,21 +3,36 @@
 #### 介绍
 手机购物，全生命周期采用区块链进行支持，区块链采用hyperledger fabric1.4，技术框架，fabric-go-springboot
 
+开发环境：
+
+
+- Centos7b3
+- Jdk1.8.0_232-b09
+- Go 1.13.5
+- Goland 2019.3 for linux
+- Idea2018.1.4 for linux
+- Fabric1.4.0
+- Fabric-samples-1.4.0-rc1
+- Fabric-sdk-java 1.4.0
+- 
+
+
 #### 软件架构
-软件架构说明
+区块链网络：hyperledger fabric 1.4.0
+智能合约开发：go语言
+前台app，及管理端：java，springboot；
+
 
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+ 
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  chaincode是链码源码，go语言开发，进行区块链上的商品信息，用户信息，购物车信息，及订单信息的区块链操作。
+2.  pdd是购物h5app的代码，java，springboot，若依平台开发
+3.  pdd-data-XXX.sql是mysql数据库。保存部分项目的数据。
 
 #### 参与贡献
 
