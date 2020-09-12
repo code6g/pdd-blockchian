@@ -3,6 +3,31 @@
 #### 介绍
 手机购物，全生命周期采用区块链进行支持，区块链采用hyperledger fabric1.4，技术框架，fabric-go-springboot
 
+#### 系统演示
+
+ ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/131921_c93ba992_5537651.png "2020-09-12_114135.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132050_4732d5bc_5537651.png "2020-09-12_113954.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132100_7e6fe132_5537651.png "2020-09-12_114002.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132118_e8f4f661_5537651.png "2020-09-12_114008.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132126_f2488ff7_5537651.png "2020-09-12_114018.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132136_874d52ea_5537651.png "2020-09-12_114135.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132143_1e895aeb_5537651.png "2020-09-12_113945.png")
+
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132159_3e00bb69_5537651.png "2020-09-12_112920.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132207_68dd3afc_5537651.png "2020-09-12_112943.png")
+![](https://images.gitee.com/uploads/images/2020/0912/132215_8c4fb3f3_5537651.png "2020-09-12_113006.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132222_d73ef8c5_5537651.png "2020-09-12_113039.png")
+
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132300_c0fed0b4_5537651.png "2020-09-12_113141.png") 
+
+
+
+
+
+
 开发环境：
 
 
@@ -24,9 +49,7 @@
 
 
 
-#### 安装教程
 
- ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/131921_c93ba992_5537651.png "2020-09-12_114135.png")
 
 #### 使用说明
 
