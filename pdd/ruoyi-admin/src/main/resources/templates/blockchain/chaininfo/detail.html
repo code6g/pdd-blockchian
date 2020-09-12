@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('链信息详情')" />
+
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-chaininfo-detail" th:object="${chaininfo}">
+	
+	        <!--链编码-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">链编码：</div>
+            <div class="col-sm-8">[[*{lid}]]</div>
+        </div>
+
+        <!--链高度-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">链高度：</div>
+            <div class="col-sm-8">[[*{lgd}]]</div>
+        </div>
+
+        <!--当前块哈希-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">当前块哈希：</div>
+            <div class="col-sm-8">[[*{dqhx}]]</div>
+        </div>
+
+        <!--前块哈希-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">前块哈希：</div>
+            <div class="col-sm-8">[[*{qkhx}]]</div>
+        </div>
+
+        <!--存储初始化-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">存储初始化：</div>
+            <div class="col-sm-8">[[*{cccs}]]</div>
+        </div>
+
+        <!--未知字段-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">未知字段：</div>
+            <div class="col-sm-8">[[*{wzzd}]]</div>
+        </div>
+
+        <!--存储大小-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">存储大小：</div>
+            <div class="col-sm-8">[[*{ccdx}]]</div>
+        </div>
+
+        <!--存储哈希-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">存储哈希：</div>
+            <div class="col-sm-8">[[*{cchx}]]</div>
+        </div>
+
+        <!--备注项00-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项00：</div>
+            <div class="col-sm-8">[[*{bz00}]]</div>
+        </div>
+
+        <!--备注项01-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项01：</div>
+            <div class="col-sm-8">[[*{bz01}]]</div>
+        </div>
+
+        <!--备注项02-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项02：</div>
+            <div class="col-sm-8">[[*{bz02}]]</div>
+        </div>
+
+        <!--备注项03-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项03：</div>
+            <div class="col-sm-8">[[*{bz03}]]</div>
+        </div>
+
+        <!--备注项04-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项04：</div>
+            <div class="col-sm-8">[[*{bz04}]]</div>
+        </div>
+
+        <!--备注项05-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项05：</div>
+            <div class="col-sm-8">[[*{bz05}]]</div>
+        </div>
+
+        <!--备注项06-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项06：</div>
+            <div class="col-sm-8">[[*{bz06}]]</div>
+        </div>
+
+        <!--备注项07-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项07：</div>
+            <div class="col-sm-8">[[*{bz07}]]</div>
+        </div>
+
+        <!--备注项08-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项08：</div>
+            <div class="col-sm-8">[[*{bz08}]]</div>
+        </div>
+
+        <!--备注项09-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项09：</div>
+            <div class="col-sm-8">[[*{bz09}]]</div>
+        </div>
+
+        <!--备注项10-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项10：</div>
+            <div class="col-sm-8">[[*{bz10}]]</div>
+        </div>
+
+        <!--备注项11-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项11：</div>
+            <div class="col-sm-8">[[*{bz11}]]</div>
+        </div>
+
+        <!--备注项12-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项12：</div>
+            <div class="col-sm-8">[[*{bz12}]]</div>
+        </div>
+
+        <!--备注项13-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项13：</div>
+            <div class="col-sm-8">[[*{bz13}]]</div>
+        </div>
+
+        <!--备注项14-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项14：</div>
+            <div class="col-sm-8">[[*{bz14}]]</div>
+        </div>
+
+        <!--备注项15-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项15：</div>
+            <div class="col-sm-8">[[*{bz15}]]</div>
+        </div>
+
+        <!--备注项16-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项16：</div>
+            <div class="col-sm-8">[[*{bz16}]]</div>
+        </div>
+
+        <!--备注项17-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项17：</div>
+            <div class="col-sm-8">[[*{bz17}]]</div>
+        </div>
+
+        <!--备注项18-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项18：</div>
+            <div class="col-sm-8">[[*{bz18}]]</div>
+        </div>
+
+        <!--备注项19-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项19：</div>
+            <div class="col-sm-8">[[*{bz19}]]</div>
+        </div>
+
+ 
+
+
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

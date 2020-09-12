@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增人员信息')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-lisryxx-add"  th:object="${lisryxx}">
+		
+           <!--人员编码-->
+           <input name="ryid" th:field="*{ryid}" type="hidden"> 
+
+           <!--人员姓名-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->人员姓名</label>
+                <div class="col-sm-8">
+                    <input name="ryxm" th:field="*{ryxm}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--人员性别-->
+            <div class="form-group  col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->人员性别</label>
+                <div class="col-sm-8">
+                    <select name="ryxb" class="form-control m-b" th:with="type=${@dict.getType('sys_user_sex')}"> <!--required!-->
+                        <option ></option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictLabel}" th:field="*{ryxb}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <!--出生日期-->
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->出生日期</label>
+                <div class="col-sm-8">
+                    <input name = "csrq" th:field="*{csrq}" class="form-control" type="date" /> <!--required!-->
+                </div>
+            </div> 
+
+            <!--登记时间-->
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->登记时间</label>
+                <div class="col-sm-8">
+                    <input name = "djsj" th:field="*{djsj}" class="form-control" type="datetime_local" /> <!--required!-->
+                </div>
+            </div> 
+
+            <!--人员身高-->
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->人员身高</label>
+                <div class="col-sm-8">
+                    <input name = "rysg" th:field="*{rysg}" class="form-control" type="number" /> <!--required!-->
+                </div>
+            </div> 
+
+
+           <!--兴趣爱好-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label  left"><!--span style="color: red; ">*</span-->兴趣爱好</label>
+                        <div class="col-sm-9">
+                            <textarea name="xqah" maxlength="500" class="form-control" rows="3" >[[*{xqah}]]</textarea><!--required--> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+           <!--个人介绍-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label  left"><!--span style="color: red; ">*</span-->个人介绍</label>
+                        <div class="col-sm-9">
+                            <textarea name="grjs" maxlength="500" class="form-control" rows="3" >[[*{grjs}]]</textarea><!--required--> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--备注项00-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项00</label>
+                <div class="col-sm-8">
+                    <input name="bz00" th:field="*{bz00}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项01-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项01</label>
+                <div class="col-sm-8">
+                    <input name="bz01" th:field="*{bz01}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项02-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项02</label>
+                <div class="col-sm-8">
+                    <input name="bz02" th:field="*{bz02}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项03-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项03</label>
+                <div class="col-sm-8">
+                    <input name="bz03" th:field="*{bz03}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项04-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项04</label>
+                <div class="col-sm-8">
+                    <input name="bz04" th:field="*{bz04}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项05-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项05</label>
+                <div class="col-sm-8">
+                    <input name="bz05" th:field="*{bz05}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项06-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项06</label>
+                <div class="col-sm-8">
+                    <input name="bz06" th:field="*{bz06}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项07-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项07</label>
+                <div class="col-sm-8">
+                    <input name="bz07" th:field="*{bz07}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项08-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项08</label>
+                <div class="col-sm-8">
+                    <input name="bz08" th:field="*{bz08}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+           <!--备注项09-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项09</label>
+                <div class="col-sm-8">
+                    <input name="bz09" th:field="*{bz09}" class="form-control" type="text" /> <!--required!-->
+                </div>
+            </div>
+
+
+             
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script type="text/javascript">
+        var prefix = ctx + "lis/lisryxx"
+        $("#form-lisryxx-add").validate({
+            focusCleanup: true
+        });
+
+        //初始化赋值
+        initValue();
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-lisryxx-add').serialize());
+            }
+        }
+        //初始化赋值
+        function initValue(){
+            // $('[name="ryid"]').val(""); //人员编码
+            // $('[name="ryxm"]').val(""); //人员姓名
+            // $('[name="ryxb"]').val(""); //人员性别
+            // $('[name="csrq"]').val(""); //出生日期
+            // $('[name="djsj"]').val(""); //登记时间
+            // $('[name="rysg"]').val(""); //人员身高
+            // $('[name="xqah"]').val(""); //兴趣爱好
+            // $('[name="grjs"]').val(""); //个人介绍
+            // $('[name="bz00"]').val(""); //备注项00
+            // $('[name="bz01"]').val(""); //备注项01
+            // $('[name="bz02"]').val(""); //备注项02
+            // $('[name="bz03"]').val(""); //备注项03
+            // $('[name="bz04"]').val(""); //备注项04
+            // $('[name="bz05"]').val(""); //备注项05
+            // $('[name="bz06"]').val(""); //备注项06
+            // $('[name="bz07"]').val(""); //备注项07
+            // $('[name="bz08"]').val(""); //备注项08
+            // $('[name="bz09"]').val(""); //备注项09
+
+        }
+    </script>
+</body>
+</html>

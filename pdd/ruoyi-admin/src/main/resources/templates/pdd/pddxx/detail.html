@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('订单信息详情')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-pddxx-detail" th:object="${pddxx}">
+	
+	        <!--订单编码-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">订单编码：</div>
+            <div class="col-sm-8">[[*{ddid}]]</div>
+        </div>
+
+        <!--订单编号-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">订单编号：</div>
+            <div class="col-sm-8">[[*{ddbh}]]</div>
+        </div>
+
+        <!--会员编码-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">会员编码：</div>
+            <div class="col-sm-8">[[*{hyid}]]</div>
+        </div>
+
+        <!--会员名称-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">会员名称：</div>
+            <div class="col-sm-8">[[*{hymc}]]</div>
+        </div>
+
+        <!--商品数量-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">商品数量：</div>
+            <div class="col-sm-8">[[*{spsl}]]</div>
+        </div>
+
+        <!--价格总计-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">价格总计：</div>
+            <div class="col-sm-8">[[*{jgzj}]]</div>
+        </div>
+
+        <!--订单状态-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">订单状态：</div>
+            <div class="col-sm-8">[[*{ddzt}]]</div>
+        </div>
+
+        <!--下单时间-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">下单时间：</div>
+            <div class="col-sm-8">[[*{xdsj}]]</div>
+        </div>
+
+        <!--下单说明-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">下单说明：</div>
+            <div class="col-sm-8">[[*{xdsm}]]</div>
+        </div>
+
+        <!--支付渠道-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">支付渠道：</div>
+            <div class="col-sm-8">[[*{zfqd}]]</div>
+        </div>
+
+        <!--支付账号-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">支付账号：</div>
+            <div class="col-sm-8">[[*{zfzh}]]</div>
+        </div>
+
+        <!--支付人-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">支付人：</div>
+            <div class="col-sm-8">[[*{zfry}]]</div>
+        </div>
+
+        <!--支付时间-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">支付时间：</div>
+            <div class="col-sm-8">[[*{zfsj}]]</div>
+        </div>
+
+        <!--支付说明-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">支付说明：</div>
+            <div class="col-sm-8">[[*{zfsm}]]</div>
+        </div>
+
+        <!--收货人-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">收货人：</div>
+            <div class="col-sm-8">[[*{shry}]]</div>
+        </div>
+
+        <!--收货地址-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">收货地址：</div>
+            <div class="col-sm-8">[[*{shdz}]]</div>
+        </div>
+
+        <!--收货人电话-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">收货人电话：</div>
+            <div class="col-sm-8">[[*{shdh}]]</div>
+        </div>
+
+        <!--配送人-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">配送人：</div>
+            <div class="col-sm-8">[[*{psry}]]</div>
+        </div>
+
+        <!--配送时间-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">配送时间：</div>
+            <div class="col-sm-8">[[*{pssj}]]</div>
+        </div>
+
+        <!--配送说明-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">配送说明：</div>
+            <div class="col-sm-8">[[*{pssm}]]</div>
+        </div>
+
+        <!--签收人-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">签收人：</div>
+            <div class="col-sm-8">[[*{qsry}]]</div>
+        </div>
+
+        <!--签收时间-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">签收时间：</div>
+            <div class="col-sm-8">[[*{qssj}]]</div>
+        </div>
+
+        <!--签收说明-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">签收说明：</div>
+            <div class="col-sm-8">[[*{qssm}]]</div>
+        </div>
+
+        <!--评价内容-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">评价内容：</div>
+            <div class="col-sm-8">[[*{pjnr}]]</div>
+        </div>
+
+        <!--评价时间-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">评价时间：</div>
+            <div class="col-sm-8">[[*{pjsj}]]</div>
+        </div>
+
+        <!--备注项00-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项00：</div>
+            <div class="col-sm-8">[[*{bz00}]]</div>
+        </div>
+
+        <!--备注项01-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项01：</div>
+            <div class="col-sm-8">[[*{bz01}]]</div>
+        </div>
+
+        <!--备注项02-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项02：</div>
+            <div class="col-sm-8">[[*{bz02}]]</div>
+        </div>
+
+        <!--备注项03-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项03：</div>
+            <div class="col-sm-8">[[*{bz03}]]</div>
+        </div>
+
+        <!--备注项04-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项04：</div>
+            <div class="col-sm-8">[[*{bz04}]]</div>
+        </div>
+
+        <!--备注项05-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项05：</div>
+            <div class="col-sm-8">[[*{bz05}]]</div>
+        </div>
+
+        <!--备注项06-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项06：</div>
+            <div class="col-sm-8">[[*{bz06}]]</div>
+        </div>
+
+        <!--备注项07-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项07：</div>
+            <div class="col-sm-8">[[*{bz07}]]</div>
+        </div>
+
+        <!--备注项08-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项08：</div>
+            <div class="col-sm-8">[[*{bz08}]]</div>
+        </div>
+
+        <!--备注项09-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项09：</div>
+            <div class="col-sm-8">[[*{bz09}]]</div>
+        </div>
+
+        <!--备注项10-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项10：</div>
+            <div class="col-sm-8">[[*{bz10}]]</div>
+        </div>
+
+        <!--备注项11-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项11：</div>
+            <div class="col-sm-8">[[*{bz11}]]</div>
+        </div>
+
+        <!--备注项12-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项12：</div>
+            <div class="col-sm-8">[[*{bz12}]]</div>
+        </div>
+
+        <!--备注项13-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项13：</div>
+            <div class="col-sm-8">[[*{bz13}]]</div>
+        </div>
+
+        <!--备注项14-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项14：</div>
+            <div class="col-sm-8">[[*{bz14}]]</div>
+        </div>
+
+        <!--备注项15-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项15：</div>
+            <div class="col-sm-8">[[*{bz15}]]</div>
+        </div>
+
+        <!--备注项16-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项16：</div>
+            <div class="col-sm-8">[[*{bz16}]]</div>
+        </div>
+
+        <!--备注项17-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项17：</div>
+            <div class="col-sm-8">[[*{bz17}]]</div>
+        </div>
+
+        <!--备注项18-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项18：</div>
+            <div class="col-sm-8">[[*{bz18}]]</div>
+        </div>
+
+        <!--备注项19-->
+        <div class="form-group col-sm-12 hidden">
+            <div class="col-sm-4 text-right">备注项19：</div>
+            <div class="col-sm-8">[[*{bz19}]]</div>
+        </div>
+
+ 
+
+
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: datetimepicker-js" />
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

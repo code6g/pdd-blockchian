@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('排序节点列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <!--查询条件form-->
+                <form id="formId" th:object="${ordererinfo}">
+                    <div class="select-list">
+                        <ul>
+                            <li class='hidden'>
+                                <p>节点编码：</p>
+                                <input type="text" id="jdid" name="jdid"  th:field="*{jdid}"/>
+                            </li>
+                           <li>
+                                <p>节点名称：</p>
+                                <input type="text" id="jdmc" name="jdmc"  th:field="*{jdmc}"/>
+                            </li>
+                           <li>
+                                <p>节点链接：</p>
+                                <input type="text" id="jdlj" name="jdlj"  th:field="*{jdlj}"/>
+                            </li>
+                           <li>
+                                <p>节点地址：</p>
+                                <input type="text" id="jddz" name="jddz"  th:field="*{jddz}"/>
+                            </li>
+                           <li>
+                                <p>通道名称：</p>
+                                <input type="text" id="tdmc" name="tdmc"  th:field="*{tdmc}"/>
+                            </li>
+                           <li>
+                                <p>是否关闭：</p>
+                                <input type="text" id="fsgb" name="fsgb"  th:field="*{fsgb}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项00：</p>
+                                <input type="text" id="bz00" name="bz00"  th:field="*{bz00}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项01：</p>
+                                <input type="text" id="bz01" name="bz01"  th:field="*{bz01}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项02：</p>
+                                <input type="text" id="bz02" name="bz02"  th:field="*{bz02}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项03：</p>
+                                <input type="text" id="bz03" name="bz03"  th:field="*{bz03}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项04：</p>
+                                <input type="text" id="bz04" name="bz04"  th:field="*{bz04}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项05：</p>
+                                <input type="text" id="bz05" name="bz05"  th:field="*{bz05}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项06：</p>
+                                <input type="text" id="bz06" name="bz06"  th:field="*{bz06}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项07：</p>
+                                <input type="text" id="bz07" name="bz07"  th:field="*{bz07}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项08：</p>
+                                <input type="text" id="bz08" name="bz08"  th:field="*{bz08}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项09：</p>
+                                <input type="text" id="bz09" name="bz09"  th:field="*{bz09}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项10：</p>
+                                <input type="text" id="bz10" name="bz10"  th:field="*{bz10}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项11：</p>
+                                <input type="text" id="bz11" name="bz11"  th:field="*{bz11}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项12：</p>
+                                <input type="text" id="bz12" name="bz12"  th:field="*{bz12}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项13：</p>
+                                <input type="text" id="bz13" name="bz13"  th:field="*{bz13}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项14：</p>
+                                <input type="text" id="bz14" name="bz14"  th:field="*{bz14}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项15：</p>
+                                <input type="text" id="bz15" name="bz15"  th:field="*{bz15}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项16：</p>
+                                <input type="text" id="bz16" name="bz16"  th:field="*{bz16}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项17：</p>
+                                <input type="text" id="bz17" name="bz17"  th:field="*{bz17}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项18：</p>
+                                <input type="text" id="bz18" name="bz18"  th:field="*{bz18}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项19：</p>
+                                <input type="text" id="bz19" name="bz19"  th:field="*{bz19}"/>
+                            </li>
+
+                             
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="blockchain:ordererinfo:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="blockchain:ordererinfo:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="blockchain:ordererinfo:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="blockchain:ordererinfo:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="blockchain:ordererinfo:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('blockchain:ordererinfo:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('blockchain:ordererinfo:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('blockchain:ordererinfo:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "blockchain/ordererinfo";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "排序节点",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'jdid',
+                    title: '节点编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'jdmc',
+                    title: '节点名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jdlj',
+                    title: '节点链接',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jddz',
+                    title: '节点地址',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'tdmc',
+                    title: '通道名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'fsgb',
+                    title: '是否关闭',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz00',
+                    title: '备注项00',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz01',
+                    title: '备注项01',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz02',
+                    title: '备注项02',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz03',
+                    title: '备注项03',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz04',
+                    title: '备注项04',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz05',
+                    title: '备注项05',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz06',
+                    title: '备注项06',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz07',
+                    title: '备注项07',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz08',
+                    title: '备注项08',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz09',
+                    title: '备注项09',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz10',
+                    title: '备注项10',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz11',
+                    title: '备注项11',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz12',
+                    title: '备注项12',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz13',
+                    title: '备注项13',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz14',
+                    title: '备注项14',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz15',
+                    title: '备注项15',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz16',
+                    title: '备注项16',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz17',
+                    title: '备注项17',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz18',
+                    title: '备注项18',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz19',
+                    title: '备注项19',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+
+                
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.jdid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.jdid + '\')"><i class="fa fa-remove"></i>删除</a> ');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.jdid + '\')"><i class="fa fa-search"></i>详情</a> ');
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+            // $('#jdid').val(''); //节点编码
+            // $('#jdmc').val(''); //节点名称
+            // $('#jdlj').val(''); //节点链接
+            // $('#jddz').val(''); //节点地址
+            // $('#tdmc').val(''); //通道名称
+            // $('#fsgb').val(''); //是否关闭
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+    </script>
+</body>
+</html>

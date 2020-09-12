@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('订单信息列表')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <style type="text/css">
+        li{
+           height:30px;
+        }
+        label{
+            font-size:12px;
+        }
+
+    </style>
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <!--查询框div-->
+            <div class="col-sm-12 search-collapse" ><!-- hidden -->
+                <!--查询条件form-->
+                <form id="formId" th:object="${pddxx}">
+                    <div class="select-list">
+                        <ul > 
+                
+                        </ul> 
+                        <ul hidden>  
+                
+                        </ul> 
+                        <ul>
+
+                           <!-- 订单编码 -->
+                            <li class='hidden'>
+                                <p>订单编码：</p>
+                                <input type="text" id="ddid" name="ddid"  th:field="*{ddid}"/>
+                            </li>
+
+                           <!-- 订单编号 -->
+                           <li>
+                                <p>订单编号：</p>
+                                <input type="text" id="ddbh" name="ddbh"  th:field="*{ddbh}"/>
+                            </li>
+
+                           <!-- 会员编码 -->
+                            <li class='hidden'>
+                                <p>会员编码：</p>
+                                <input type="text" id="hyid" name="hyid"  th:field="*{hyid}"/>
+                            </li>
+
+                           <!-- 会员名称 -->
+                           <li>
+                                <p>会员名称：</p>
+                                <input type="text" id="hymc" name="hymc"  th:field="*{hymc}"/>
+                            </li>
+
+                           <!-- 商品数量 -->
+                           <li>
+                                <p>商品数量：</p>
+                                <input type="text" id="spsl" name="spsl"  th:field="*{spsl}"/>
+                            </li>
+
+                           <!-- 价格总计 -->
+                           <li>
+                                <p>价格总计：</p>
+                                <input type="text" id="jgzj" name="jgzj"  th:field="*{jgzj}"/>
+                            </li>
+
+                           <!-- 订单状态 -->
+                           <li hidden>
+                                <p>订单状态：</p>
+                                <input type="text" id="ddzt" name="ddzt"  th:field="*{ddzt}"/>
+                            </li>
+
+                           <!-- 下单时间 -->
+                           <li>
+                                <p>下单时间：</p>
+                                <input type="text" id="xdsj" name="xdsj"  th:field="*{xdsj}"/>
+                            </li>
+
+                           <!-- 下单说明 -->
+                            <li class='hidden'>
+                                <p>下单说明：</p>
+                                <input type="text" id="xdsm" name="xdsm"  th:field="*{xdsm}"/>
+                            </li>
+
+                           <!-- 支付渠道 -->
+                           <li>
+                                <p>支付渠道：</p>
+                                <input type="text" id="zfqd" name="zfqd"  th:field="*{zfqd}"/>
+                            </li>
+
+                           <!-- 支付账号 -->
+                           <li>
+                                <p>支付账号：</p>
+                                <input type="text" id="zfzh" name="zfzh"  th:field="*{zfzh}"/>
+                            </li>
+
+                           <!-- 支付人 -->
+                           <li>
+                                <p>支付人：</p>
+                                <input type="text" id="zfry" name="zfry"  th:field="*{zfry}"/>
+                            </li>
+
+                           <!-- 支付时间 -->
+                           <li>
+                                <p>支付时间：</p>
+                                <input type="text" id="zfsj" name="zfsj"  th:field="*{zfsj}"/>
+                            </li>
+
+                           <!-- 支付说明 -->
+                            <li class='hidden'>
+                                <p>支付说明：</p>
+                                <input type="text" id="zfsm" name="zfsm"  th:field="*{zfsm}"/>
+                            </li>
+
+                           <!-- 收货人 -->
+                           <li>
+                                <p>收货人：</p>
+                                <input type="text" id="shry" name="shry"  th:field="*{shry}"/>
+                            </li>
+
+                           <!-- 收货地址 -->
+                           <li>
+                                <p>收货地址：</p>
+                                <input type="text" id="shdz" name="shdz"  th:field="*{shdz}"/>
+                            </li>
+
+                           <!-- 收货人电话 -->
+                           <li>
+                                <p>收货人电话：</p>
+                                <input type="text" id="shdh" name="shdh"  th:field="*{shdh}"/>
+                            </li>
+
+                           <!-- 配送人 -->
+                           <li>
+                                <p>配送人：</p>
+                                <input type="text" id="psry" name="psry"  th:field="*{psry}"/>
+                            </li>
+
+                           <!-- 配送时间 -->
+                           <li>
+                                <p>配送时间：</p>
+                                <input type="text" id="pssj" name="pssj"  th:field="*{pssj}"/>
+                            </li>
+
+                           <!-- 配送说明 -->
+                            <li class='hidden'>
+                                <p>配送说明：</p>
+                                <input type="text" id="pssm" name="pssm"  th:field="*{pssm}"/>
+                            </li>
+
+                           <!-- 签收人 -->
+                           <li>
+                                <p>签收人：</p>
+                                <input type="text" id="qsry" name="qsry"  th:field="*{qsry}"/>
+                            </li>
+
+                           <!-- 签收时间 -->
+                           <li>
+                                <p>签收时间：</p>
+                                <input type="text" id="qssj" name="qssj"  th:field="*{qssj}"/>
+                            </li>
+
+                           <!-- 签收说明 -->
+                            <li class='hidden'>
+                                <p>签收说明：</p>
+                                <input type="text" id="qssm" name="qssm"  th:field="*{qssm}"/>
+                            </li>
+
+                           <!-- 评价内容 -->
+                            <li class='hidden'>
+                                <p>评价内容：</p>
+                                <input type="text" id="pjnr" name="pjnr"  th:field="*{pjnr}"/>
+                            </li>
+
+                           <!-- 评价时间 -->
+                           <li>
+                                <p>评价时间：</p>
+                                <input type="text" id="pjsj" name="pjsj"  th:field="*{pjsj}"/>
+                            </li>
+
+                           <!-- 备注项00 -->
+                            <li class='hidden'>
+                                <p>备注项00：</p>
+                                <input type="text" id="bz00" name="bz00"  th:field="*{bz00}"/>
+                            </li>
+
+                           <!-- 备注项01 -->
+                            <li class='hidden'>
+                                <p>备注项01：</p>
+                                <input type="text" id="bz01" name="bz01"  th:field="*{bz01}"/>
+                            </li>
+
+                           <!-- 备注项02 -->
+                            <li class='hidden'>
+                                <p>备注项02：</p>
+                                <input type="text" id="bz02" name="bz02"  th:field="*{bz02}"/>
+                            </li>
+
+                           <!-- 备注项03 -->
+                            <li class='hidden'>
+                                <p>备注项03：</p>
+                                <input type="text" id="bz03" name="bz03"  th:field="*{bz03}"/>
+                            </li>
+
+                           <!-- 备注项04 -->
+                            <li class='hidden'>
+                                <p>备注项04：</p>
+                                <input type="text" id="bz04" name="bz04"  th:field="*{bz04}"/>
+                            </li>
+
+                           <!-- 备注项05 -->
+                            <li class='hidden'>
+                                <p>备注项05：</p>
+                                <input type="text" id="bz05" name="bz05"  th:field="*{bz05}"/>
+                            </li>
+
+                           <!-- 备注项06 -->
+                            <li class='hidden'>
+                                <p>备注项06：</p>
+                                <input type="text" id="bz06" name="bz06"  th:field="*{bz06}"/>
+                            </li>
+
+                           <!-- 备注项07 -->
+                            <li class='hidden'>
+                                <p>备注项07：</p>
+                                <input type="text" id="bz07" name="bz07"  th:field="*{bz07}"/>
+                            </li>
+
+                           <!-- 备注项08 -->
+                            <li class='hidden'>
+                                <p>备注项08：</p>
+                                <input type="text" id="bz08" name="bz08"  th:field="*{bz08}"/>
+                            </li>
+
+                           <!-- 备注项09 -->
+                            <li class='hidden'>
+                                <p>备注项09：</p>
+                                <input type="text" id="bz09" name="bz09"  th:field="*{bz09}"/>
+                            </li>
+
+                           <!-- 备注项10 -->
+                            <li class='hidden'>
+                                <p>备注项10：</p>
+                                <input type="text" id="bz10" name="bz10"  th:field="*{bz10}"/>
+                            </li>
+
+                           <!-- 备注项11 -->
+                            <li class='hidden'>
+                                <p>备注项11：</p>
+                                <input type="text" id="bz11" name="bz11"  th:field="*{bz11}"/>
+                            </li>
+
+                           <!-- 备注项12 -->
+                            <li class='hidden'>
+                                <p>备注项12：</p>
+                                <input type="text" id="bz12" name="bz12"  th:field="*{bz12}"/>
+                            </li>
+
+                           <!-- 备注项13 -->
+                            <li class='hidden'>
+                                <p>备注项13：</p>
+                                <input type="text" id="bz13" name="bz13"  th:field="*{bz13}"/>
+                            </li>
+
+                           <!-- 备注项14 -->
+                            <li class='hidden'>
+                                <p>备注项14：</p>
+                                <input type="text" id="bz14" name="bz14"  th:field="*{bz14}"/>
+                            </li>
+
+                           <!-- 备注项15 -->
+                            <li class='hidden'>
+                                <p>备注项15：</p>
+                                <input type="text" id="bz15" name="bz15"  th:field="*{bz15}"/>
+                            </li>
+
+                           <!-- 备注项16 -->
+                            <li class='hidden'>
+                                <p>备注项16：</p>
+                                <input type="text" id="bz16" name="bz16"  th:field="*{bz16}"/>
+                            </li>
+
+                           <!-- 备注项17 -->
+                            <li class='hidden'>
+                                <p>备注项17：</p>
+                                <input type="text" id="bz17" name="bz17"  th:field="*{bz17}"/>
+                            </li>
+
+                           <!-- 备注项18 -->
+                            <li class='hidden'>
+                                <p>备注项18：</p>
+                                <input type="text" id="bz18" name="bz18"  th:field="*{bz18}"/>
+                            </li>
+
+                           <!-- 备注项19 -->
+                            <li class='hidden'>
+                                <p>备注项19：</p>
+                                <input type="text" id="bz19" name="bz19"  th:field="*{bz19}"/>
+                            </li>
+                             
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="pdd:pddxx:add">
+                    <i class="fa fa-plus"></i> 添加订单信息
+                </a>
+                <!-- 在子表列表里用这个add
+                <a class="btn btn-success" onclick="$.operate.add($('#fuid').val())" shiro:hasPermission="pdd:pddxx:add">
+                    <i class="fa fa-plus"></i> 添加订单信息
+                </a>
+                --> 
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="pdd:pddxx:edit">
+                    <i class="fa fa-edit"></i> 修改订单信息
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="pdd:pddxx:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="pdd:pddxx:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="pdd:pddxx:export">
+                    <i class="fa fa-download"></i> 导出excel
+                 </a>
+                <a class="btn btn-primary" onclick="downloadtemplate()" shiro:hasPermission="pdd:pddxx:downloadtemplate">
+                    <i class="fa fa-download"></i> 下载模板
+                </a>
+                <a class="btn btn-warning" onclick="importexcel()" shiro:hasPermission="pdd:pddxx:importexcel">
+                    <i class="fa fa-download"></i> 导入excel
+                </a>
+                <!-- 在refer 引用列表里用这个button
+                <a class="btn btn-danger multiple disabled" onclick="select_pddxx_ok_ids()">
+                    <i class="fa fa-edit"></i>引用选中的多条信息
+                </a>
+                --> 
+                
+                <input type="file" id="file" onchange="importexceldo()"
+                       style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;"/>  
+                
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+	
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('pdd:pddxx:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('pdd:pddxx:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('pdd:pddxx:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "pdd/pddxx";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                //createUrl: prefix + "/add{id}", //在子表列表里用这个add
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "订单信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'ddid',
+                    title: '订单编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'ddbh',
+                    title: '订单编号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'hyid',
+                    title: '会员编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'hymc',
+                    title: '会员名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'spsl',
+                    title: '商品数量',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jgzj',
+                    title: '价格总计',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'ddzt',
+                    title: '订单状态',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'xdsj',
+                    title: '下单时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'xdsm',
+                    title: '下单说明',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'zfqd',
+                    title: '支付渠道',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'zfzh',
+                    title: '支付账号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'zfry',
+                    title: '支付人',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'zfsj',
+                    title: '支付时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'zfsm',
+                    title: '支付说明',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'shry',
+                    title: '收货人',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'shdz',
+                    title: '收货地址',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'shdh',
+                    title: '收货人电话',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'psry',
+                    title: '配送人',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'pssj',
+                    title: '配送时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'pssm',
+                    title: '配送说明',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'qsry',
+                    title: '签收人',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'qssj',
+                    title: '签收时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'qssm',
+                    title: '签收说明',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'pjnr',
+                    title: '评价内容',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'pjsj',
+                    title: '评价时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz00',
+                    title: '备注项00',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz01',
+                    title: '备注项01',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz02',
+                    title: '备注项02',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz03',
+                    title: '备注项03',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz04',
+                    title: '备注项04',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz05',
+                    title: '备注项05',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz06',
+                    title: '备注项06',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz07',
+                    title: '备注项07',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz08',
+                    title: '备注项08',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz09',
+                    title: '备注项09',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz10',
+                    title: '备注项10',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz11',
+                    title: '备注项11',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz12',
+                    title: '备注项12',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz13',
+                    title: '备注项13',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz14',
+                    title: '备注项14',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz15',
+                    title: '备注项15',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz16',
+                    title: '备注项16',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz17',
+                    title: '备注项17',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz18',
+                    title: '备注项18',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz19',
+                    title: '备注项19',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+
+                
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.ddid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.ddid + '\')"><i class="fa fa-remove"></i>删除</a> ');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.ddid + '\')"><i class="fa fa-search"></i>详情</a> ');
+
+                        <!-- actions.push('<a class="btn btn-danger btn-xs" href="javascript:void(0)" onclick="select_pddxx_ok(\'' + row.ddid + '\')"><i class="fa fa-edit"></i>引用</a> '); -->
+
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+            // $('#ddid').val(''); //订单编码
+            // $('#ddbh').val(''); //订单编号
+            // $('#hyid').val(''); //会员编码
+            // $('#hymc').val(''); //会员名称
+            // $('#spsl').val(''); //商品数量
+            // $('#jgzj').val(''); //价格总计
+            // $('#ddzt').val(''); //订单状态
+            // $('#xdsj').val(''); //下单时间
+            // $('#xdsm').val(''); //下单说明
+            // $('#zfqd').val(''); //支付渠道
+            // $('#zfzh').val(''); //支付账号
+            // $('#zfry').val(''); //支付人
+            // $('#zfsj').val(''); //支付时间
+            // $('#zfsm').val(''); //支付说明
+            // $('#shry').val(''); //收货人
+            // $('#shdz').val(''); //收货地址
+            // $('#shdh').val(''); //收货人电话
+            // $('#psry').val(''); //配送人
+            // $('#pssj').val(''); //配送时间
+            // $('#pssm').val(''); //配送说明
+            // $('#qsry').val(''); //签收人
+            // $('#qssj').val(''); //签收时间
+            // $('#qssm').val(''); //签收说明
+            // $('#pjnr').val(''); //评价内容
+            // $('#pjsj').val(''); //评价时间
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+    </script> 
+
+        <!--excel导入-->
+        <script>
+        //点击导入按钮
+        function importexcel(fileId) {
+            var currentId = $.common.isEmpty(fileId) ? 'file' : fileId;
+            $("#" + currentId).trigger("click");
+        }
+
+        //执行file导入
+        function importexceldo(fileId) {
+            $.modal.loading("正在导入，请等待");
+            var currentId = $.common.isEmpty(fileId) ? 'file' : fileId;
+            var file = $("#" + currentId)[0].files[0];
+            if (file == 'undefined' || file == undefined) {
+                return;
+            }
+            var myform = new FormData();
+            myform.append('file', file);
+            /*$.modal.loading("正在导入数据，请稍后...");*/
+            $.ajax({
+                url: prefix + "/importexcel",
+                type: "POST",
+                data: myform,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    if (result.code == 0) {
+                        //清空附件
+                        $("#" + currentId).val("");
+                        $.modal.closeLoading();
+                        $.modal.msgSuccess(result.msg);
+                        $.table.refresh();
+                    } else {
+                        $.modal.msgError(result.msg);
+                    }
+                    //清空附件
+                    $("#" + currentId).val("");
+                    $.modal.closeLoading();
+                },
+                error: function (data) {
+                    console.log(data);
+                    //清空附件
+                    $("#" + currentId).val("");
+                    $.modal.closeLoading();
+                }
+            });
+        }
+
+        //导出模板
+        function downloadtemplate(){
+            table.set();
+                var currentId = $('form').attr('id') ;
+                $.modal.loading("正在导出模板，请稍后...");
+                var  url_downloadtemplate=prefix  +"/downloadtemplate";
+
+                $.post(url_downloadtemplate, $("#" + currentId).serializeArray(), function(result) {
+
+                    if (result.code == web_status.SUCCESS) {
+                        var urlDownload=ctx+"profile/download/"+encodeURI(result.msg);
+                        window.open(urlDownload);
+
+                    } else if (result.code == web_status.WARNING) {
+                        $.modal.alertWarning(result.msg)
+                    } else {
+                        $.modal.alertError(result.msg);
+                    }
+                    $.modal.closeLoading();
+                });
+        }
+    </script>
+    <!-- end excel导入 -->
+    
+    <!-- refer 被引用后调用的函数 -->
+     <script>
+         //点击引用，给parent窗口传递id值，或其他参数
+         function select_pddxx_ok(aid) {
+            parent.select_pddxx_ok(aid);
+         }
+         
+        //多个id引用，用逗号隔开
+        function select_pddxx_ok_ids() {
+            table.set();
+            var rows = $.common.isEmpty(table.options.uniqueId) ? $.table.selectFirstColumns() : $.table.selectColumns(table.options.uniqueId);
+            if (rows.length == 0) {
+                $.modal.alertWarning("请至少选择一条记录");
+                return;
+            } 
+            //多个id引用，用逗号隔开
+            parent.select_pddxx_ok(rows.join());  
+         }
+    
+    </script>
+    <!-- end refer 被引用后调用的函数 -->
+    
+    <script>
+      function xxxx() {
+        
+        return;
+      }
+    </script>
+    
+</body>
+</html>

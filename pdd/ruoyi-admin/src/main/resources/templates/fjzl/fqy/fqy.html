@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('1+1+1签约列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <!--查询条件form-->
+                <form id="formId" th:object="${fqy}">
+                    <div class="select-list">
+                        <ul>
+                            <li class='hidden'>
+                                <p>签约编码：</p>
+                                <input type="text" id="qyid" name="qyid"  th:field="*{qyid}"/>
+                            </li>
+                           <li>
+                                <p>签约编号：</p>
+                                <input type="text" id="qybh" name="qybh"  th:field="*{qybh}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>社区编码：</p>
+                                <input type="text" id="sqid" name="sqid"  th:field="*{sqid}"/>
+                            </li>
+                           <li>
+                                <p>社区名称：</p>
+                                <input type="text" id="sqmc" name="sqmc"  th:field="*{sqmc}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>区级医院编码：</p>
+                                <input type="text" id="qjid" name="qjid"  th:field="*{qjid}"/>
+                            </li>
+                           <li>
+                                <p>区级医院名称：</p>
+                                <input type="text" id="qjmc" name="qjmc"  th:field="*{qjmc}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>市级医院编码：</p>
+                                <input type="text" id="sjid" name="sjid"  th:field="*{sjid}"/>
+                            </li>
+                           <li>
+                                <p>市级医院名称：</p>
+                                <input type="text" id="sjmc" name="sjmc"  th:field="*{sjmc}"/>
+                            </li>
+                           <li>
+                                <p>医生工号：</p>
+                                <input type="text" id="ysgh" name="ysgh"  th:field="*{ysgh}"/>
+                            </li>
+                           <li>
+                                <p>医生身份证：</p>
+                                <input type="text" id="yssf" name="yssf"  th:field="*{yssf}"/>
+                            </li>
+                           <li>
+                                <p>医生姓名：</p>
+                                <input type="text" id="ysxm" name="ysxm"  th:field="*{ysxm}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>居民编码：</p>
+                                <input type="text" id="jmid" name="jmid"  th:field="*{jmid}"/>
+                            </li>
+                           <li>
+                                <p>居民身份证：</p>
+                                <input type="text" id="jmsf" name="jmsf"  th:field="*{jmsf}"/>
+                            </li>
+                           <li>
+                                <p>居民医保卡：</p>
+                                <input type="text" id="jmyb" name="jmyb"  th:field="*{jmyb}"/>
+                            </li>
+                           <li>
+                                <p>居民姓名：</p>
+                                <input type="text" id="jmxm" name="jmxm"  th:field="*{jmxm}"/>
+                            </li>
+                           <li>
+                                <p>居民电话：</p>
+                                <input type="text" id="jmdh" name="jmdh"  th:field="*{jmdh}"/>
+                            </li>
+                           <li>
+                                <p>居民地址：</p>
+                                <input type="text" id="jmdz" name="jmdz"  th:field="*{jmdz}"/>
+                            </li>
+                           <li>
+                                <p>签约时间：</p>
+                                <input type="text" id="qysj" name="qysj"  th:field="*{qysj}"/>
+                            </li>
+                           <li>
+                                <p>有效期：</p>
+                                <input type="text" id="yxqx" name="yxqx"  th:field="*{yxqx}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>签约内容：</p>
+                                <input type="text" id="qynr" name="qynr"  th:field="*{qynr}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>签约备注：</p>
+                                <input type="text" id="qybz" name="qybz"  th:field="*{qybz}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项00：</p>
+                                <input type="text" id="bz00" name="bz00"  th:field="*{bz00}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项01：</p>
+                                <input type="text" id="bz01" name="bz01"  th:field="*{bz01}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项02：</p>
+                                <input type="text" id="bz02" name="bz02"  th:field="*{bz02}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项03：</p>
+                                <input type="text" id="bz03" name="bz03"  th:field="*{bz03}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项04：</p>
+                                <input type="text" id="bz04" name="bz04"  th:field="*{bz04}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项05：</p>
+                                <input type="text" id="bz05" name="bz05"  th:field="*{bz05}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项06：</p>
+                                <input type="text" id="bz06" name="bz06"  th:field="*{bz06}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项07：</p>
+                                <input type="text" id="bz07" name="bz07"  th:field="*{bz07}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项08：</p>
+                                <input type="text" id="bz08" name="bz08"  th:field="*{bz08}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项09：</p>
+                                <input type="text" id="bz09" name="bz09"  th:field="*{bz09}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项10：</p>
+                                <input type="text" id="bz10" name="bz10"  th:field="*{bz10}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项11：</p>
+                                <input type="text" id="bz11" name="bz11"  th:field="*{bz11}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项12：</p>
+                                <input type="text" id="bz12" name="bz12"  th:field="*{bz12}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项13：</p>
+                                <input type="text" id="bz13" name="bz13"  th:field="*{bz13}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项14：</p>
+                                <input type="text" id="bz14" name="bz14"  th:field="*{bz14}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项15：</p>
+                                <input type="text" id="bz15" name="bz15"  th:field="*{bz15}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项16：</p>
+                                <input type="text" id="bz16" name="bz16"  th:field="*{bz16}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项17：</p>
+                                <input type="text" id="bz17" name="bz17"  th:field="*{bz17}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项18：</p>
+                                <input type="text" id="bz18" name="bz18"  th:field="*{bz18}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项19：</p>
+                                <input type="text" id="bz19" name="bz19"  th:field="*{bz19}"/>
+                            </li>
+
+                             
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="fjzl:fqy:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="fjzl:fqy:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="fjzl:fqy:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="fjzl:fqy:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="fjzl:fqy:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('fjzl:fqy:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('fjzl:fqy:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('fjzl:fqy:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "fjzl/fqy";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "1+1+1签约",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'qyid',
+                    title: '签约编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'qybh',
+                    title: '签约编号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'sqid',
+                    title: '社区编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'sqmc',
+                    title: '社区名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'qjid',
+                    title: '区级医院编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'qjmc',
+                    title: '区级医院名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'sjid',
+                    title: '市级医院编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'sjmc',
+                    title: '市级医院名称',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'ysgh',
+                    title: '医生工号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'yssf',
+                    title: '医生身份证',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'ysxm',
+                    title: '医生姓名',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmid',
+                    title: '居民编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmsf',
+                    title: '居民身份证',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmyb',
+                    title: '居民医保卡',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmxm',
+                    title: '居民姓名',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmdh',
+                    title: '居民电话',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'jmdz',
+                    title: '居民地址',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'qysj',
+                    title: '签约时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'yxqx',
+                    title: '有效期',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'qynr',
+                    title: '签约内容',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'qybz',
+                    title: '签约备注',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz00',
+                    title: '备注项00',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz01',
+                    title: '备注项01',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz02',
+                    title: '备注项02',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz03',
+                    title: '备注项03',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz04',
+                    title: '备注项04',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz05',
+                    title: '备注项05',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz06',
+                    title: '备注项06',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz07',
+                    title: '备注项07',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz08',
+                    title: '备注项08',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz09',
+                    title: '备注项09',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz10',
+                    title: '备注项10',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz11',
+                    title: '备注项11',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz12',
+                    title: '备注项12',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz13',
+                    title: '备注项13',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz14',
+                    title: '备注项14',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz15',
+                    title: '备注项15',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz16',
+                    title: '备注项16',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz17',
+                    title: '备注项17',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz18',
+                    title: '备注项18',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz19',
+                    title: '备注项19',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+
+                
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.qyid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.qyid + '\')"><i class="fa fa-remove"></i>删除</a> ');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.qyid + '\')"><i class="fa fa-search"></i>详情</a> ');
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="queryBlockChainOfQyxxByQybh(\'' + row.qybh + '\')"><i class="fa fa-edit"></i>查询区块链</a> ');
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+            // $('#qyid').val(''); //签约编码
+            // $('#qybh').val(''); //签约编号
+            // $('#sqid').val(''); //社区编码
+            // $('#sqmc').val(''); //社区名称
+            // $('#qjid').val(''); //区级医院编码
+            // $('#qjmc').val(''); //区级医院名称
+            // $('#sjid').val(''); //市级医院编码
+            // $('#sjmc').val(''); //市级医院名称
+            // $('#ysgh').val(''); //医生工号
+            // $('#yssf').val(''); //医生身份证
+            // $('#ysxm').val(''); //医生姓名
+            // $('#jmid').val(''); //居民编码
+            // $('#jmsf').val(''); //居民身份证
+            // $('#jmyb').val(''); //居民医保卡
+            // $('#jmxm').val(''); //居民姓名
+            // $('#jmdh').val(''); //居民电话
+            // $('#jmdz').val(''); //居民地址
+            // $('#qysj').val(''); //签约时间
+            // $('#yxqx').val(''); //有效期
+            // $('#qynr').val(''); //签约内容
+            // $('#qybz').val(''); //签约备注
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+
+
+        function queryBlockChainOfQyxxByQybh(qybh){
+
+            //url权限前缀
+            var _url = ctx + "fjzl/fqy/detailBlockChain/"+qybh;
+
+            //var _url = $.operate.detailUrl(id);
+            var _width = $(window).width() - 50;//"800";// : width;
+            var _height =$(window).height() - 50;
+            // $.common.isEmpty(height) ? ($(window).height() - 50) : height;
+
+
+            var options = {
+                title: "查询区块链-签约信息",
+                width: _width,
+                height: _height,
+                url: _url,
+                skin: 'layui-layer-gray',
+                btn: ['关闭'],
+                yes: function (index, layero) {
+                    layer.close(index);
+                }
+            };
+            $.modal.openOptions(options);
+
+
+
+        }
+    </script>
+</body>
+</html>

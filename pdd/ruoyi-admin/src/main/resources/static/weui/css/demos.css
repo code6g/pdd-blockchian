@@ -1,0 +1,186 @@
+
+
+body {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+  padding-top:45px;
+  padding-bottom: 50px;
+}
+
+
+.weui-tabbar-lw{
+
+   position:fixed; left:0px; bottom:0px; width:100%; height:50px;   z-index:9999;
+
+
+}
+.demos-header-lw{
+  position:fixed; left:0px; top:0px; width:100%; height:45px;   z-index:9999;
+
+
+}
+
+
+
+
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+
+.weui-flex__item-lw {
+  text-align: center;
+  margin:20px;
+
+}
+
+
+.weui-flex__item-lw img {
+  text-align: center;
+}
+
+.weui-flex__item-lw p {
+  text-align: center;
+  color:black;
+}
+
+
+.weui-flex__item-lw a {
+  text-align: center;
+  color:black;
+}
+
+
+
+.weui-flex__item-lw-spfl2{
+  background-color: #eee;
+  margin:1px;
+  height:40px;
+  line-height: 40px;
+}
+
+
+.weui-flex__item-lw-spfl2 a{
+  color:black;
+  font-size:12px;
+  text-align: center;
+
+}
+
+
+.splist-item{
+  text-align: center;
+  border: 1px solid #eee;
+  margin:2px;color:black; font-size:12px;
+}
+
+.splist-item div{
+  text-align: center;
+  border: 0px solid #eee;
+  margin:2px;color:black; font-size:12px;
+}
+
+.splist-item img{
+  width:95%;
+  margin:3px;
+  border:1px solid #eee;
+}
+
+
+
+<!-- spdetail -->
+.spdetail-item{
+  text-align: center;
+
+}
+.spdetail-item img{
+  width:100%;
+  margin-top:0px;
+  border:0px solid #eee;
+}
+
+.spdetail-item div{
+  margin:auto;
+  width:100%;
+
+  border:0px solid #eee;
+  text-align:left;
+}
+
+.spdetail-item p{
+  padding:3px;
+
+  border:0px solid #eee;
+  text-align:left;
+}
+<!-- end spdetail -->
+
+
+.cart-table-onespxx{
+   border: 0px;
+   vertical-align:top;
+}
+
+.cart-table-onespxx td{
+  vertical-align:middle;
+}
+
+
+.cart_img_spxx{
+    width: 100%;
+   height:100px;
+}
+
+.cart_div_spxx {
+  height:60px;
+  margin: 2px;
+  text-align: left;
+  font-size: 14px;
+  vertical-align:top;
+}
+
+.cart_div_adddec{
+  height:20px;
+  margin: 2px;
+  text-align: right;
+  font-size: 14px;
+  vertical-align:center;
+  float:bottom;
+}

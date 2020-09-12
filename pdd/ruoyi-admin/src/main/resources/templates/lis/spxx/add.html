@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增商品信息')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-spxx-add"  th:object="${spxx}">
+            <input name="spid" th:field="*{spid}" type="hidden">
+            <!--
+             <div class="form-group">
+                 <label class="col-sm-3 control-label">商品编码：</label>
+                 <div class="col-sm-8">
+                     <input name="spid" th:field="*{spid}" class="form-control" type="text">
+                 </div>
+             </div>
+             -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label  left">类型编码：</label>
+                        <div class="col-sm-9">
+                            <textarea name="lxid" maxlength="500" class="form-control" rows="3">[[*{lxid}]]</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><span style="color: red; ">*</span>商品名称：</label>
+                <div class="col-sm-8">
+                    <input name="spmc" th:field="*{spmc}" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group  col-sm-6">
+                <label class="col-sm-4 control-label">类型名称：</label>
+                <div class="col-sm-8">
+                    <select name="lxmc" class="form-control m-b" th:with="type=${@dict.getType('sys_splx')}">
+                        <option ></option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictLabel}" th:field="*{lxmc}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label">生产日期：</label>
+                <div class="col-sm-8">
+                    <input name="scrq" th:field="*{scrq}" class="form-control" type="date">
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script type="text/javascript">
+        var prefix = ctx + "lis/spxx"
+        $("#form-spxx-add").validate({
+            focusCleanup: true
+        });
+
+        //初始化赋值
+        initValue();
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-spxx-add').serialize());
+            }
+        }
+        //初始化赋值
+        function initValue(){
+            // $('[name="spid"]').val(""); //商品编码
+            // $('[name="spmc"]').val(""); //商品名称
+            // $('[name="lxid"]').val(""); //类型编码
+            // $('[name="lxmc"]').val(""); //类型名称
+            // $('[name="scrq"]').val(""); //生产日期
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('商品信息详情')" />
+
+</head>
+<body class="white-bg">
+<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+    <form class="form-horizontal m" id="form-spxx-detail" th:object="${spxx}">
+        <input name="spid" th:field="*{spid}" type="hidden">
+
+        <!--<div class="form-group col-sm-12">-->
+            <!--<label class="col-sm-4 control-label"> 商品编码：</label>-->
+            <!--<div class="col-sm-8">-->
+                <!--[[*{spid}]]-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">商品名称：</div>
+            <div class="col-sm-8">[[*{spmc}]]</div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">类型编码：</div>
+            <div class="col-sm-8">[[*{lxid}]]</div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">类型名称：</div>
+            <div class="col-sm-8">[[*{lxmc}]]</div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-4 text-right">生产时间：</div>
+            <div class="col-sm-8">[[*{scrq}]]</div>
+        </div>
+
+
+
+    </form>
+</div>
+<th:block th:include="include :: footer" />
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('人员信息列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <!--查询条件form-->
+                <form id="formId" th:object="${lisryxx}">
+                    <div class="select-list">
+                        <ul>
+                            <li class='hidden'>
+                                <p>人员编码：</p>
+                                <input type="text" name="ryid"  th:field="*{ryid}"/>
+                            </li>
+                           <li>
+                                <p>人员姓名：</p>
+                                <input type="text" name="ryxm"  th:field="*{ryxm}"/>
+                            </li>
+                           <li>
+                                <p>人员性别：</p>
+                                <input type="text" name="ryxb"  th:field="*{ryxb}"/>
+                            </li>
+                           <li>
+                                <p>出生日期：</p>
+                                <input type="text" name="csrq"  th:field="*{csrq}"/>
+                            </li>
+                           <li>
+                                <p>登记时间：</p>
+                                <input type="text" name="djsj"  th:field="*{djsj}"/>
+                            </li>
+                           <li>
+                                <p>人员身高：</p>
+                                <input type="text" name="rysg"  th:field="*{rysg}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>兴趣爱好：</p>
+                                <input type="text" name="xqah"  th:field="*{xqah}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>个人介绍：</p>
+                                <input type="text" name="grjs"  th:field="*{grjs}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项00：</p>
+                                <input type="text" name="bz00"  th:field="*{bz00}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项01：</p>
+                                <input type="text" name="bz01"  th:field="*{bz01}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项02：</p>
+                                <input type="text" name="bz02"  th:field="*{bz02}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项03：</p>
+                                <input type="text" name="bz03"  th:field="*{bz03}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项04：</p>
+                                <input type="text" name="bz04"  th:field="*{bz04}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项05：</p>
+                                <input type="text" name="bz05"  th:field="*{bz05}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项06：</p>
+                                <input type="text" name="bz06"  th:field="*{bz06}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项07：</p>
+                                <input type="text" name="bz07"  th:field="*{bz07}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项08：</p>
+                                <input type="text" name="bz08"  th:field="*{bz08}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项09：</p>
+                                <input type="text" name="bz09"  th:field="*{bz09}"/>
+                            </li>
+
+                             
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="lis:lisryxx:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="lis:lisryxx:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="lis:lisryxx:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="lis:lisryxx:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="lis:lisryxx:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('lis:lisryxx:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('lis:lisryxx:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('lis:lisryxx:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "lis/lisryxx";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "人员信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'ryid',
+                    title: '人员编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'ryxm',
+                    title: '人员姓名',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'ryxb',
+                    title: '人员性别',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'csrq',
+                    title: '出生日期',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'djsj',
+                    title: '登记时间',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'rysg',
+                    title: '人员身高',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'xqah',
+                    title: '兴趣爱好',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'grjs',
+                    title: '个人介绍',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz00',
+                    title: '备注项00',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz01',
+                    title: '备注项01',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz02',
+                    title: '备注项02',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz03',
+                    title: '备注项03',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz04',
+                    title: '备注项04',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz05',
+                    title: '备注项05',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz06',
+                    title: '备注项06',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz07',
+                    title: '备注项07',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz08',
+                    title: '备注项08',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz09',
+                    title: '备注项09',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+
+                
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.ryid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.ryid + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.ryid + '\')"><i class="fa fa-search"></i>详情</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+            // $('[name="ryid"]').val(""); //人员编码
+            // $('[name="ryxm"]').val(""); //人员姓名
+            // $('[name="ryxb"]').val(""); //人员性别
+            // $('[name="csrq"]').val(""); //出生日期
+            // $('[name="djsj"]').val(""); //登记时间
+            // $('[name="rysg"]').val(""); //人员身高
+            // $('[name="xqah"]').val(""); //兴趣爱好
+            // $('[name="grjs"]').val(""); //个人介绍
+            // $('[name="bz00"]').val(""); //备注项00
+            // $('[name="bz01"]').val(""); //备注项01
+            // $('[name="bz02"]').val(""); //备注项02
+            // $('[name="bz03"]').val(""); //备注项03
+            // $('[name="bz04"]').val(""); //备注项04
+            // $('[name="bz05"]').val(""); //备注项05
+            // $('[name="bz06"]').val(""); //备注项06
+            // $('[name="bz07"]').val(""); //备注项07
+            // $('[name="bz08"]').val(""); //备注项08
+            // $('[name="bz09"]').val(""); //备注项09
+
+        }
+    </script>
+</body>
+</html>

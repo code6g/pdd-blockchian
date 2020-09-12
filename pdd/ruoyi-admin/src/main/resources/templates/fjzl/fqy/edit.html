@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改1+1+1签约')" />
+    <style type="text/css">
+        input{
+          font-size:12px;
+        }
+        label{
+          font-size:12px;
+        }
+
+    </style>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-fqy-edit" th:object="${fqy}">
+           <!--签约编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->签约编码</label>
+                <div class="col-sm-8">
+                    <input id="qyid"  name="qyid" th:field="*{qyid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--签约编号-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->签约编号</label>
+                <div class="col-sm-8">
+                    <input id="qybh" name="qybh" th:field="*{qybh}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--社区编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->社区编码</label>
+                <div class="col-sm-8">
+                    <input id="sqid"  name="sqid" th:field="*{sqid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--社区名称-->
+            <div class="form-group  col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->社区名称</label>
+                <div class="col-sm-8">
+                    <select id="sqmc"  name="sqmc" class="form-control m-b" th:with="type=${@dict.getType('fjzlsqyy')}"> <!--required-->
+                        <option ></option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictLabel}" th:field="*{sqmc}"></option>
+                    </select>
+                </div>
+            </div>
+
+           <!--区级医院编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->区级医院编码</label>
+                <div class="col-sm-8">
+                    <input id="qjid"  name="qjid" th:field="*{qjid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--区级医院名称-->
+            <div class="form-group  col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->区级医院名称</label>
+                <div class="col-sm-8">
+                    <select id="qjmc"  name="qjmc" class="form-control m-b" th:with="type=${@dict.getType('fjzlqjyy')}"> <!--required-->
+                        <option ></option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictLabel}" th:field="*{qjmc}"></option>
+                    </select>
+                </div>
+            </div>
+
+           <!--市级医院编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->市级医院编码</label>
+                <div class="col-sm-8">
+                    <input id="sjid"  name="sjid" th:field="*{sjid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--市级医院名称-->
+            <div class="form-group  col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->市级医院名称</label>
+                <div class="col-sm-8">
+                    <select id="sjmc"  name="sjmc" class="form-control m-b" th:with="type=${@dict.getType('fjzlsjyy')}"> <!--required-->
+                        <option ></option>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictLabel}" th:field="*{sjmc}"></option>
+                    </select>
+                </div>
+            </div>
+
+           <!--医生工号-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->医生工号</label>
+                <div class="col-sm-8">
+                    <input id="ysgh" name="ysgh" th:field="*{ysgh}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--医生身份证-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->医生身份证</label>
+                <div class="col-sm-8">
+                    <input id="yssf" name="yssf" th:field="*{yssf}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--医生姓名-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->医生姓名</label>
+                <div class="col-sm-8">
+                    <input id="ysxm" name="ysxm" th:field="*{ysxm}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民编码</label>
+                <div class="col-sm-8">
+                    <input id="jmid"  name="jmid" th:field="*{jmid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民身份证-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民身份证</label>
+                <div class="col-sm-8">
+                    <input id="jmsf" name="jmsf" th:field="*{jmsf}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民医保卡-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民医保卡</label>
+                <div class="col-sm-8">
+                    <input id="jmyb" name="jmyb" th:field="*{jmyb}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民姓名-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民姓名</label>
+                <div class="col-sm-8">
+                    <input id="jmxm" name="jmxm" th:field="*{jmxm}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民电话-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民电话</label>
+                <div class="col-sm-8">
+                    <input id="jmdh" name="jmdh" th:field="*{jmdh}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--居民地址-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->居民地址</label>
+                <div class="col-sm-8">
+                    <input id="jmdz" name="jmdz" th:field="*{jmdz}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+            <!--签约时间-->
+            <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->签约时间</label>
+                <div class="col-sm-8">
+                    <input id="qysj"  name = "qysj" th:field="*{qysj}" class="form-control" type="date" /> <!--required-->
+                </div>
+            </div> 
+
+           <!--有效期-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->有效期</label>
+                <div class="col-sm-8">
+                    <input id="yxqx" name="yxqx" th:field="*{yxqx}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+
+           <!--签约内容-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label  left"><!--span style="color: red; ">*</span-->签约内容</label>
+                        <div class="col-sm-9">
+                            <textarea id="qynr"  name="qynr" maxlength="500" class="form-control" rows="3" >[[*{qynr}]]</textarea><!--required--> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--签约备注-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->签约备注</label>
+                <div class="col-sm-8">
+                    <input id="qybz"  name="qybz" th:field="*{qybz}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项00-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项00</label>
+                <div class="col-sm-8">
+                    <input id="bz00"  name="bz00" th:field="*{bz00}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项01-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项01</label>
+                <div class="col-sm-8">
+                    <input id="bz01"  name="bz01" th:field="*{bz01}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项02-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项02</label>
+                <div class="col-sm-8">
+                    <input id="bz02"  name="bz02" th:field="*{bz02}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项03-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项03</label>
+                <div class="col-sm-8">
+                    <input id="bz03"  name="bz03" th:field="*{bz03}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项04-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项04</label>
+                <div class="col-sm-8">
+                    <input id="bz04"  name="bz04" th:field="*{bz04}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项05-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项05</label>
+                <div class="col-sm-8">
+                    <input id="bz05"  name="bz05" th:field="*{bz05}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项06-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项06</label>
+                <div class="col-sm-8">
+                    <input id="bz06"  name="bz06" th:field="*{bz06}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项07-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项07</label>
+                <div class="col-sm-8">
+                    <input id="bz07"  name="bz07" th:field="*{bz07}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项08-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项08</label>
+                <div class="col-sm-8">
+                    <input id="bz08"  name="bz08" th:field="*{bz08}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项09-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项09</label>
+                <div class="col-sm-8">
+                    <input id="bz09"  name="bz09" th:field="*{bz09}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项10-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项10</label>
+                <div class="col-sm-8">
+                    <input id="bz10"  name="bz10" th:field="*{bz10}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项11-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项11</label>
+                <div class="col-sm-8">
+                    <input id="bz11"  name="bz11" th:field="*{bz11}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项12-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项12</label>
+                <div class="col-sm-8">
+                    <input id="bz12"  name="bz12" th:field="*{bz12}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项13-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项13</label>
+                <div class="col-sm-8">
+                    <input id="bz13"  name="bz13" th:field="*{bz13}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项14-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项14</label>
+                <div class="col-sm-8">
+                    <input id="bz14"  name="bz14" th:field="*{bz14}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项15-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项15</label>
+                <div class="col-sm-8">
+                    <input id="bz15"  name="bz15" th:field="*{bz15}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项16-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项16</label>
+                <div class="col-sm-8">
+                    <input id="bz16"  name="bz16" th:field="*{bz16}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项17-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项17</label>
+                <div class="col-sm-8">
+                    <input id="bz17"  name="bz17" th:field="*{bz17}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项18-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项18</label>
+                <div class="col-sm-8">
+                    <input id="bz18"  name="bz18" th:field="*{bz18}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项19-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项19</label>
+                <div class="col-sm-8">
+                    <input id="bz19"  name="bz19" th:field="*{bz19}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+ 
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script type="text/javascript">
+        var prefix = ctx + "fjzl/fqy";
+        $("#form-fqy-edit").validate({
+            focusCleanup: true
+        });
+        updateValueBeforeEdit();
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                updateValueAfterEdit();
+                $.operate.save(prefix + "/edit", $('#form-fqy-edit').serialize());
+            }
+        }
+        //对编辑前的信息进行更新赋值
+        function updateValueBeforeEdit(){
+            // $('#qyid').val(''); //签约编码
+            // $('#qybh').val(''); //签约编号
+            // $('#sqid').val(''); //社区编码
+            // $('#sqmc').val(''); //社区名称
+            // $('#qjid').val(''); //区级医院编码
+            // $('#qjmc').val(''); //区级医院名称
+            // $('#sjid').val(''); //市级医院编码
+            // $('#sjmc').val(''); //市级医院名称
+            // $('#ysgh').val(''); //医生工号
+            // $('#yssf').val(''); //医生身份证
+            // $('#ysxm').val(''); //医生姓名
+            // $('#jmid').val(''); //居民编码
+            // $('#jmsf').val(''); //居民身份证
+            // $('#jmyb').val(''); //居民医保卡
+            // $('#jmxm').val(''); //居民姓名
+            // $('#jmdh').val(''); //居民电话
+            // $('#jmdz').val(''); //居民地址
+            // $('#qysj').val(''); //签约时间
+            // $('#yxqx').val(''); //有效期
+            // $('#qynr').val(''); //签约内容
+            // $('#qybz').val(''); //签约备注
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+        //对编辑后的信息进行更新赋值
+        function updateValueAfterEdit(){
+            // $('#qyid').val(''); //签约编码
+            // $('#qybh').val(''); //签约编号
+            // $('#sqid').val(''); //社区编码
+            // $('#sqmc').val(''); //社区名称
+            // $('#qjid').val(''); //区级医院编码
+            // $('#qjmc').val(''); //区级医院名称
+            // $('#sjid').val(''); //市级医院编码
+            // $('#sjmc').val(''); //市级医院名称
+            // $('#ysgh').val(''); //医生工号
+            // $('#yssf').val(''); //医生身份证
+            // $('#ysxm').val(''); //医生姓名
+            // $('#jmid').val(''); //居民编码
+            // $('#jmsf').val(''); //居民身份证
+            // $('#jmyb').val(''); //居民医保卡
+            // $('#jmxm').val(''); //居民姓名
+            // $('#jmdh').val(''); //居民电话
+            // $('#jmdz').val(''); //居民地址
+            // $('#qysj').val(''); //签约时间
+            // $('#yxqx').val(''); //有效期
+            // $('#qynr').val(''); //签约内容
+            // $('#qybz').val(''); //签约备注
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+            
+        }
+    </script>
+</body>
+</html>

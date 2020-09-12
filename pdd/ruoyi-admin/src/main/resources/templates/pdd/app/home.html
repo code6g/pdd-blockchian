@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>区块链-拼爹爹商城APP</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <link th:href="@{favicon.ico}" rel="stylesheet"/>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- begin jqueryWeUI 头部CSS配置-->
+    <link rel="stylesheet" th:href="@{/weui/lib/weui.min.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/jquery-weui.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/demos.css}">
+    <!--end jqueryWeUI 头部CSS配置-->
+
+    <link rel="stylesheet" th:href="@{/weui/jdavid/a.view.css}">
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 160px;
+        }
+
+        .swiper-container img {
+            display: block;
+            width: 100%;
+            height: 160px;
+        }
+    </style>
+
+
+    <style type="text/css">
+
+
+    </style>
+</head>
+
+
+<body class=" ">
+
+
+<input id="curHyid" style="display:none;"/>
+<input id="curHymc" style="display:none;"/>
+
+<!-- begin 页头-->
+<header class='demos-header-lw'>
+    <div class="weui-flex">
+
+        <div class="weui-flex__item">
+            <div class="placeholder-lw" id="divTitle">区块链-拼爹爹商城APP</div>
+        </div>
+
+    </div>
+</header>
+<!-- end 页头-->
+
+
+<!-- begin 滚动图片-->
+<div class="swiper-container" style="display:; height:200px;">
+
+    <div class="swiper-wrapper" id="div_swiper" style=" height:200px;">
+
+        <div class="swiper-slide"><img th:src="@{/weui/images/c1.jpg}" style=" height:200px;"/></div>
+        <div class="swiper-slide"><img th:src="@{/weui/images/c2.jpg}" style=" height:200px;"/></div>
+        <div class="swiper-slide"><img th:src="@{/weui/images/c3.jpg}" style=" height:200px;"/></div>
+        <div class="swiper-slide"><img th:src="@{/weui/images/c4.jpg}" style=" height:200px;"/></div>
+        <div class="swiper-slide"><img th:src="@{/weui/images/c5.png}" style=" height:200px;"/></div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+<!-- end 滚动图片-->
+
+<!--product categroy one-->
+
+<div class="weui-tab" style="overflow:scroll;height:60px;">
+    <div class="weui-navbar" style="width:200%;" id="div_spfl">
+        <a class="weui-navbar__item weui-bar__item--on" href="#tab1"> 女装</a>
+
+        <a class="weui-navbar__item" href="#tab2"> 女鞋 </a>
+        <a class="weui-navbar__item" href="#tab3"> 母婴 </a>
+        <a class="weui-navbar__item" href="#tab4"> 男装 </a>
+        <a class="weui-navbar__item" href="#tab5"> 美妆 </a>
+        <a class="weui-navbar__item" href="#tab6"> 手机 </a>
+        <a class="weui-navbar__item" href="#tab7"> 大家电 </a>
+        <a class="weui-navbar__item" href="#tab8"> 零食 </a>
+        <a class="weui-navbar__item" href="#tab9"> 厨具 </a>
+        <a class="weui-navbar__item" href="#tab10"> 家纺 </a>
+        <a class="weui-navbar__item" href="#tab11"> 图书音像 </a>
+        <a class="weui-navbar__item" href="#tab12"> 医药保健 </a>
+        <a class="weui-navbar__item" href="#tab13"> 汽车 </a>
+        <a class="weui-navbar__item" href="#tab14"> 装修 </a>
+
+    </div>
+</div>
+<!--end product categroy one-->
+
+
+<!-- begin 快捷按钮 spfl2-->
+<div id="div_spfl2">
+    <div class="weui-flex">
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aA">
+                <img th:src="@{/weui/images/a.png}" style="width: 60%;"/><br/>
+                <p>服装</p>
+            </a>
+        </div>
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aB">
+                <img th:src="@{/weui/images/b.png}" style="width: 60%;"/><br/>
+                <p>数码</p>
+            </a>
+        </div>
+
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aC">
+                <img th:src="@{/weui/images/c.png}" style="width: 60%;"/><br/>
+                <p>食品</p>
+            </a>
+        </div>
+    </div>
+    <div class="weui-flex">
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aD">
+                <img th:src="@{/weui/images/d.png}" style="width: 60%;"/><br/>
+                <p>食品</p>
+            </a>
+        </div>
+
+
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aE">
+                <img th:src="@{/weui/images/a.png}" style="width: 60%;"/><br/>
+                <p>饮料</p>
+            </a>
+        </div>
+
+        <div class="weui-flex__item weui-flex__item-lw">
+            <a href="#" id="aF">
+                <img src="" style="width: 60%;" alt=""/><br/>
+                <p></p>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- end spfl2-->
+
+
+<!--spxx list-->
+<div id="div_spxx">
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+        <div class="weui-flex-item">
+            <img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">
+        </div>
+        <div class="weui-flex-item" style="margin:6px;">
+            每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>
+            <span class="weui-badge">退货包运费</span> <br/>
+            ¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>
+        </div>
+    </div>
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+        <div class="weui-flex-item">
+            <img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">
+        </div>
+        <div class="weui-flex-item" style="margin:6px;">
+            每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>
+            <span class="weui-badge">退货包运费</span> <br/>
+            ¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>
+        </div>
+    </div>
+
+
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+        <div class="weui-flex-item">
+            <img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">
+        </div>
+        <div class="weui-flex-item" style="margin:6px;">
+            每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>
+            <span class="weui-badge">退货包运费</span> <br/>
+            ¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>
+        </div>
+    </div>
+
+
+
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+        <div class="weui-flex-item">
+            <img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">
+        </div>
+        <div class="weui-flex-item" style="margin:6px;">
+            每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>
+            <span class="weui-badge">退货包运费</span> <br/>
+            ¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+        <div class="weui-flex-item">
+            <img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">
+        </div>
+        <div class="weui-flex-item" style="margin:6px;">
+            每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>
+            <span class="weui-badge">退货包运费</span> <br/>
+            ¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>
+        </div>
+    </div>
+
+
+</div>
+
+
+<hr/>
+
+
+<!--spxx list end-->
+
+<!-- begin 底部tabbar-->
+<div class="weui-tabbar weui-tabbar-lw">
+
+    <a href="./home" class="weui-tabbar__item weui-bar__item--on" id="aDown1">
+        <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+        -->
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i1.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">商品</p>
+    </a>
+    <a href="./cart" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/gwc.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">购物车</p>
+    </a>
+
+    <a href="./order" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i2.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">订单</p>
+    </a>
+
+    <a href="./my" class="weui-tabbar__item" id="aDown4">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i4.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+
+</div>
+<!-- end 底部tabbar-->
+
+
+<!-- begin jqueryWeUI 底部js配置-->
+<script th:src="@{/weui/lib/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/weui/lib/fastclick.js}"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script th:src="@{/weui/js/jquery-weui.min.js}"></script>
+<!-- end jqueryWeUI 底部js配置-->
+
+<script th:src="@{/weui/js/swiper.js}"></script>
+<script th:src="@{/weui/jdavid/e.util.js}"></script>
+<script th:src="@{/weui/jdavid/f.request.js}"></script>
+<script th:src="@{/weui/jdavid/z.proj.js}"></script>
+<script>
+    //picture play
+    // 滚动图片
+    $(".swiper-container").swiper({
+        loop: true,
+        autoplay: 2000
+    });
+
+
+    //init for spfl
+    var array_spfl = [
+        ["食品", "啤酒", "瓜子炒货", "混合果蔬干", "肉制品", "米", "坚果"],
+        ["鞋包", "帆布女鞋	", "双肩包", "休闲男鞋", "大码女鞋", "休闲女鞋", "旅行箱包"],
+        ["女装", "女装T恤", "牛仔裤女	", "大码女装", "时尚套装", "连衣裙", "休闲裤女"],
+        ["内衣", "抹胸", "男士内裤", "女士内裤", "短袜", "丝袜", "女士睡衣"],
+        ["百货", "手链", "茶具", "防护用品", "发饰", "防潮雨具", "保温杯"],
+        ["美妆", "眉笔", "男士香水", "美体仪", "护理套装", "面膜", "洁面"],
+        ["洗护", "洗衣护理", "身体护理", "家用洗洁剂", "洗发护发", "沐浴露", "抽纸"],
+        ["图书", "中学教辅", "学习教辅", "言情武侠小说", "中考高考", "儿童课外书", "世界名著"],
+        ["男装", "男装T恤", "休闲裤男", "个性街头	", "牛仔裤男", "休闲套装男", "夹克"],
+        ["运动", "运动拖鞋", "甩脂机", "电动车", "休闲板鞋", "跑步鞋", "篮球鞋"],
+        ["生鲜", "人参果", "橘子", "羊肉", "火龙果", "苹果", "猪肉"],
+        ["健康", "男科药品", "三高心脑", "医用口罩", "彩色隐形", "肠胃用药", "风湿内科"],
+        ["手机", "vivo", "小米", "华为", "oppo", "苹果", "honor"],
+        ["电器", "按摩器材", "冰箱", "洗衣机	", "空调", "电饭煲", "榨汁机"]
+    ];
+
+    init_spfl(array_spfl);
+    show_spfl2(null, "" + array_spfl[0] + "", 1); //show the first spfl2;
+    query_and_show_spxx_list("0101");
+
+
+    //begin init for spfl
+    function init_spfl(array_spfl) {
+        var s = "";
+        for (var i = 0; i < array_spfl.length; i++) {
+            var s3 = "";
+            if (i == 0) {
+                s3 = " weui-bar__item--on ";
+            }
+            var index1 = i + 1;
+            s += "<a class='weui-navbar__item " + s3 + "' href=\"javascript:show_spfl2(this,'" + array_spfl[i] + "'," + index1 + ");\">" + array_spfl[i][0] + "</a>";
+        }
+        $("#div_spfl").html(s);
+    }
+
+    function show_spfl2(obj, array_spfl2, index1) {
+        if (obj != null) {
+            $("#div_spfl>a").removeClass("weui-bar__item--on");
+            $(obj).addClass("weui-bar__item--on");
+        }
+        //alert(array_spfl2);
+        var s2 = array_spfl2.split(",");
+        var s = "";
+        for (var i = 1; i < s2.length; i++) {
+            if ((i % 3) == 1) {
+                s += "<div class=\"weui-flex\">";
+            }
+            var spfl_mc = s2[i];
+            spfl_dm= "0"+index1+"0"+i;
+            spfl_dm=spfl_dm.substring(spfl_dm.length-4);
+
+            s += "";
+            s += "<div class=\"weui-flex__item weui-flex__item-lw\" onclick=\"query_and_show_spxx_list('"+spfl_dm+"')\">";
+            s += "   <a href=\"#\" id=\"aA\">";
+            s += "    <img src='../../weui/images/spfl/" + index1 + "/" + i + ".jpg' style=\"width: 60%;\"/><br/>";
+            s += "    <p>" + spfl_mc + "</p>";
+            s += "    </a>";
+            s += "    </div>";
+            if ((i % 3) == 0) {
+                s += "</div>";
+            }
+        }
+        $("#div_spfl2").html(s);
+    }
+    //end init for spfl
+
+    //show spxx list
+    function query_and_show_spxx_list(spfl_dm){
+        //alert(spfl_dm);
+
+        var url =  '/pdd/app/home/spxxlist/'+spfl_dm;
+        var config = {
+            url: url,
+            type: "post",
+            dataType: "text",
+            data: "",
+            beforeSend: function () {
+                // $.modal.loading("正在处理中，请稍后...");
+            },
+            success: function (result) {
+                //alert(result);
+                console.log(result);
+                // var code = result.code;
+                // var msg = result.msg;
+                // var data = result.data;
+                // //查询结果客户信息，进行界面赋值
+                // show_ref_resultinfo(data);
+
+                show_spxx_list(result);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("访问服务器失败1:"+XMLHttpRequest.status+XMLHttpRequest.readyState);
+                console.log("访问服务器失败2:"+textStatus);
+                console.log("访问服务器失败3:"+errorThrown);
+
+                alert('访问服务器失败');
+            }
+        };
+        $.ajax(config);
+    }
+
+    function show_spxx_list(s_json) {
+        var jsonObj=  eval('(' + s_json + ')');
+        //alert(jsonObj[0].spmc);
+        var s="";
+        for(var i=0;i<jsonObj.length;i++){
+            //alert(jsonObj[i].spmc);
+
+
+            s+="<div class='weui-flex' style='border-top:1px solid #eee;'>";
+            s+="    <div class='weui-flex-item' style='width: 50%;'>";
+            s+="<a href='spdetail/"+jsonObj[i].spid+"'>";
+            s+="    <img src='"+get_sptp(jsonObj[i].sptp)+"' style='width:94%;height:180px;margin:6px;'>";
+            s+="</a>";
+            s+="</div>";
+
+
+            s+="<div class='weui-flex-item' style='margin:6px; width: 50%;'>";
+            s+="    "+jsonObj[i].spmc+"<br/><br/>";
+            s+="<span class='weui-badge'>退货包运费</span> <br/>";
+            s+="    ¥<span style='color:red;font-size:24px;'>"+jsonObj[i].spjg+"</span> <span style='color:lightgray;'>已拼10万+件</span>";
+            s+="</div>";
+
+
+            s+="</div>";
+            s+="";
+
+        }
+
+        $("#div_spxx").html(s);
+
+
+
+        function get_sptp(sptp){
+            var s1=sptp
+            var s2=s1.split(";");
+            for(var i=0;i<s2.length;i++){
+                var s3=s2[i];
+
+                if(s3.trim()!=""){
+
+                    return "/profile/spzp/"+s3;
+                }
+                return "../../weui/images/spxx/1.jpg";
+                //$("#"+s3).css("border","2px solid red");
+                // $("[id='"+s3+"']").css("border","4px solid red");
+                //alert($("#"+s3).id);
+            }
+
+        }
+    }
+    //end show spxx list
+
+
+
+
+
+
+
+
+    //init();
+    function init() {
+
+        $('#aA').attr('href', 'xxlist_gz.html');
+        $('#aB').attr('href', 'xxlist_jj.html');
+        $('#aC').attr('href', 'xxlist_rs.html');
+        $('#aD').attr('href', 'xxlist_jg.html');
+        $('#aE').attr('href', 'xxlist_hmd.html');
+
+
+        $('#aDown1').attr('href', 'home.html');
+        $('#aDown2').attr('href', 'bm.html');
+        $('#aDown3').attr('href', 'wd.html');
+        $('#aDown4').attr('href', 'my.html');
+
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 2000
+        });
+
+
+    }
+
+
+    function initPlayPic(curHyid) {
+        //  debugger;
+        $.ajax({
+            type: 'post',
+            //url: serverURL + 'querySql.ashx',
+            url: 'home_playpic.ashx',
+            async: true, // 使用同步方式
+            data: JSON.stringify({
+                'curHyid': curHyid
+            }),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: function (response) {
+                //$('#result').text(data.result);
+                //debugger;
+                //console.log(response);
+                //console.log(response.data);
+                //alert(response);
+                var s = response;
+                $('#div_swiper').html(s);
+                // 滚动图片
+                $(".swiper-container").swiper({
+                    loop: true,
+                    autoplay: 2000
+                });
+
+            },
+            error: function (errorinfo) {
+                //console.log(errorinfo);
+                console.log(errorinfo.responseText);
+                //console.log(errorinfo.responseText.data);
+
+                //alert(errorinfo.responseText.data);
+                var s = errorinfo.responseText;
+                //alert(s);
+                $('#div_swiper').html(s);
+                // 滚动图片
+                $(".swiper-container").swiper({
+                    loop: true,
+                    autoplay: 2000
+                });
+                //alert('访问服务器失败:initPlayPic' + errorinfo);
+            }
+        });
+
+    }
+
+
+</script>
+</body>
+</html>

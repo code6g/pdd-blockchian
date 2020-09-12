@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <th:block th:include="include :: header('文件上传')"/>
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+
+</head>
+<body class="white-bg">
+
+
+   <!--begin 文件上传 -->
+    <div class="form-group col-sm-10">
+        <!--标题-->
+        <label class="font-noraml">多文件上传</label>
+
+        <!--上传成功后，界面上显示文件名称和路径的input-->
+        <input  id="inputFileOk" name="inputFileOk" style="width: 100%;"></input>
+
+        <!--用于上传文件的file的input框-->
+        <div class="file-loading">
+            <input id="inputFile" name="inputFile" type="file" multiple>
+        </div>
+    </div>
+
+
+
+    <th:block th:include="include :: footer"/>
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#inputFile").fileinput({
+                'theme': 'explorer-fas',
+                'uploadUrl': ctx + 'demo6g/fileupload/insert',
+                previewFileType: 'object',
+                initialPreviewFileType: 'object',
+                showPreview: false,
+                overwriteInitial: false,
+                initialPreviewAsData: false,
+                enctype: 'multipart/form-data',
+                initialPreview: ""
+            });
+            $("#inputFile").on("filepreajax", function (event, data) {
+                // console.log(event);
+                // console.log(data);
+                debugger;
+
+            });
+            // fileuploaded(event,data , previewId , index):上传并完成时触发(无论是点击的哪个按钮)
+            $('#inputFile').on('fileuploaded', function (event, data, previewId, index) {
+                //console.log(event);
+                console.log(data);
+                //console.log(previewId);
+                console.log(index);
+
+                var msg = data.response.msg;
+                $('#inputFileOk').val($('#inputFileOk').val() + msg);
+
+                //alert(data.response.msg);
+                debugger;
+
+            });
+
+        });
+    </script>
+   <!--end  文件上传-->
+
+
+
+</body>
+</html>

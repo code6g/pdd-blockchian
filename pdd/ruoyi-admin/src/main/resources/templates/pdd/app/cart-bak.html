@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>区块链-拼爹爹商城APP</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <link th:href="@{favicon.ico}" rel="stylesheet"/>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- begin jqueryWeUI 头部CSS配置-->
+    <link rel="stylesheet" th:href="@{/weui/lib/weui.min.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/jquery-weui.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/demos.css}">
+    <!--end jqueryWeUI 头部CSS配置-->
+
+    <link rel="stylesheet" th:href="@{/weui/jdavid/a.view.css}">
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 160px;
+        }
+
+        .swiper-container img {
+            display: block;
+            width: 100%;
+            height: 160px;
+        }
+    </style>
+
+
+    <style type="text/css">
+
+
+    </style>
+</head>
+
+
+<body class=" ">
+
+
+<input id="curHyid" style="display:none;"/>
+<input id="curHymc" style="display:none;"/>
+
+<!-- begin 页头-->
+<header class='demos-header-lw'>
+    <div class="weui-flex">
+
+        <div class="weui-flex__item">
+            <div class="placeholder-lw" id="divTitle">区块链-拼爹爹商城APP</div>
+        </div>
+
+    </div>
+</header>
+<!-- end 页头-->
+
+
+<!--spxx detail-->
+<div id="div_spxx" th:object="${pspxx}">
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+
+        <!-- begin 滚动图片-->
+        <div class="swiper-container" style="display:; height:250px;">
+
+            <div class="swiper-wrapper" id="div_swiper" style=" height:250px;">
+                <!--<div class="swiper-slide"><img  src="@{/weui/images/c1.jpg}" style=" height:200px;"/></div>-->
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- end 滚动图片-->
+
+
+    </div>
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+
+        <div class="weui-flex-item" style="margin:6px;">
+
+            ¥<span style="color:red;font-size:24px;">[[*{spjg}]]</span>
+            <span class="weui-badge">退货包运费</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:lightgray;  ">已拼10万+件</span>
+            <br/>
+
+            <br/>
+
+            <br/>
+
+
+            <span>[[*{spmc}]]</span>-<span>[[*{spms}]]</span><br/><br/>
+
+            <br/>
+
+        </div>
+    </div>
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+
+
+        <div class="weui-flex-item" style="margin:0px; text-align: right; width: 70%">
+            <div class="button_sp_area" style="text-align: right;">
+
+
+            </div>
+        </div>
+        <div class="weui-flex-item" style="margin:0px; text-align: right;width: 30%">
+
+            <div class="button_sp_area" style="text-align: right;">
+
+                <a href="javascript:;" class="weui-btn weui-btn_warn " style="width:100%; border-radius: 0px">加入购物车</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!--spxx list end-->
+
+
+<!-- begin 底部tabbar-->
+<div class="weui-tabbar weui-tabbar-lw">
+
+    <a href="../home" class="weui-tabbar__item weui-bar__item--on" id="aDown1">
+        <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+        -->
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i1.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">商品</p>
+    </a>
+    <a href="../cart" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/gwc.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">购物车</p>
+    </a>
+
+    <a href="./order" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i2.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">订单</p>
+    </a>
+
+    <a href="../my" class="weui-tabbar__item" id="aDown4">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i4.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+
+</div>
+<!-- end 底部tabbar-->
+
+
+<!-- begin jqueryWeUI 底部js配置-->
+<script th:src="@{/weui/lib/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/weui/lib/fastclick.js}"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script th:src="@{/weui/js/jquery-weui.min.js}"></script>
+<!-- end jqueryWeUI 底部js配置-->
+
+<script th:src="@{/weui/js/swiper.js}"></script>
+<script th:src="@{/weui/jdavid/e.util.js}"></script>
+<script th:src="@{/weui/jdavid/f.request.js}"></script>
+<script th:src="@{/weui/jdavid/z.proj.js}"></script>
+<script>
+
+
+</script>
+
+<script th:inline="javascript">
+
+
+
+
+</script>
+</body>
+</html>

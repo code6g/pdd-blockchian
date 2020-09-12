@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>区块链-拼爹爹商城APP</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <link th:href="@{/favicon.ico}" rel="stylesheet"/>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- begin jqueryWeUI 头部CSS配置-->
+    <link rel="stylesheet" th:href="@{/weui/lib/weui.min.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/jquery-weui.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/demos.css}">
+    <!--end jqueryWeUI 头部CSS配置-->
+
+    <link rel="stylesheet" th:href="@{/weui/jdavid/a.view.css}">
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 160px;
+        }
+
+        .swiper-container img {
+            display: block;
+            width: 100%;
+            height: 160px;
+        }
+    </style>
+
+
+    <style type="text/css">
+
+
+    </style>
+</head>
+
+
+<body class=" ">
+
+
+<!-- begin 页头-->
+<header class='demos-header-lw'>
+    <div class="weui-flex">
+
+        <div class="weui-flex__item">
+            <div class="placeholder-lw" id="divTitle">区块链-拼爹爹商城APP</div>
+        </div>
+
+    </div>
+</header>
+<!-- end 页头-->
+
+
+<!--spxx detail-->
+<div id="div_spxx" th:object="${pspxx}">
+
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+
+        <!-- begin 滚动图片-->
+        <div class="swiper-container" style="display:; height:250px;">
+
+            <div class="swiper-wrapper" id="div_swiper" style=" height:250px;">
+                <!--<div class="swiper-slide"><img  src="@{/weui/images/c1.jpg}" style=" height:200px;"/></div>-->
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div>
+        <!-- end 滚动图片-->
+
+
+    </div>
+    <div class="weui-flex" style="border-top:1px solid #eee;">
+
+        <div class="weui-flex-item" style="margin:6px;">
+
+            ¥<span style="color:red;font-size:24px;">[[*{spjg}]]</span>
+            <span class="weui-badge">退货包运费</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color:lightgray;  ">已拼10万+件</span>
+            <br/>
+
+            <br/>
+
+            <br/>
+
+
+            <span>[[*{spmc}]]</span>-<span>[[*{spms}]]</span><br/><br/>
+
+            <br/>
+            <input id="spid" th:value="*{spid}" hidden/>
+
+        </div>
+    </div>
+
+    <div class="weui-flex" style="border-top:1px solid #ddd;  border-bottom:1px solid #ddd; background:#eee;">
+
+
+        <div class="weui-flex-item" style="margin:0px; text-align: right; width: 70%">
+
+
+
+            <div class="weui-count" style="height: 40px ; line-height: 40px; margin-right:60px;">
+                <a class="weui-count__btn weui-count__decrease " href="javascript:reduce_one();"></a>
+                <input class="weui-count__number" type="number"  id="spsl" value="1">
+                <a class="weui-count__btn weui-count__increase" href="javascript:add_one();"></a>
+            </div>
+
+        </div>
+        <div class="weui-flex-item" style="margin:0px; text-align: right;width: 30%">
+
+            <div class="button_sp_area" style="text-align: right;">
+
+                <a href="javascript:add_to_cart();" class="weui-btn weui-btn_warn " style="width:100%; border-radius: 0px" id="btn_addtocart">加入购物车</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<!--spxx list end-->
+
+
+<!-- begin 底部tabbar-->
+<div class="weui-tabbar weui-tabbar-lw">
+
+    <a href="../home" class="weui-tabbar__item weui-bar__item--on" id="aDown1">
+        <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+        -->
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i1.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">商品</p>
+    </a>
+    <a href="../cart" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/gwc.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">购物车</p>
+    </a>
+
+    <a href="./order" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i2.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">订单</p>
+    </a>
+
+    <a href="../my" class="weui-tabbar__item" id="aDown4">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i4.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+
+</div>
+<!-- end 底部tabbar-->
+
+
+<!-- begin jqueryWeUI 底部js配置-->
+<script th:src="@{/weui/lib/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/weui/lib/fastclick.js}"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script th:src="@{/weui/js/jquery-weui.min.js}"></script>
+<!-- end jqueryWeUI 底部js配置-->
+
+<script th:src="@{/weui/js/swiper.js}"></script>
+<script th:src="@{/weui/jdavid/e.util.js}"></script>
+<script th:src="@{/weui/jdavid/f.request.js}"></script>
+<script th:src="@{/weui/jdavid/z.proj.js}"></script>
+<script>
+
+
+    function add_one() {
+        $('#spsl').val(parseInt($('#spsl').val())+1);
+    }
+    function reduce_one() {
+        $('#spsl').val(parseInt($('#spsl').val())-1);
+        if($('#spsl').val()=='0'){
+          alert("数量至少为1");
+          $('#spsl').val("1");
+        }数量至少为1
+    }
+
+
+    //init();
+    function init() {
+
+        $('#aA').attr('href', 'xxlist_gz.html');
+        $('#aB').attr('href', 'xxlist_jj.html');
+        $('#aC').attr('href', 'xxlist_rs.html');
+        $('#aD').attr('href', 'xxlist_jg.html');
+        $('#aE').attr('href', 'xxlist_hmd.html');
+
+
+        $('#aDown1').attr('href', 'home.html');
+        $('#aDown2').attr('href', 'bm.html');
+        $('#aDown3').attr('href', 'wd.html');
+        $('#aDown4').attr('href', 'my.html');
+
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 2000
+        });
+
+
+    }
+
+
+</script>
+
+
+<script th:inline="javascript">
+
+    //--sleep-------------------
+    var sleep = function(time) {
+        var startTime = new Date().getTime() + parseInt(time, 10);
+        while(new Date().getTime() < startTime) {}
+    };
+    //sleep(1000); // 延时函数，单位ms
+
+    //--end sleep-------------------
+
+
+
+    function show_spxx_sptp_and_play() {
+        //debugger;
+        var s1 = [[${pspxx.sptp}]];
+        var s2 = s1.split(";");
+        var shtml = "";
+        for (var i = 0; i < s2.length; i++) {
+            var s3 = s2[i];
+            if (s3.trim() == "") {
+                continue;
+            }
+            //$("#"+s3).css("border","2px solid red");
+            //$("[id='"+s3+"']").css("border","4px solid red");
+            //alert($("#"+s3).id);
+
+
+            shtml += "<div class='swiper-slide'><img  src='/profile/spzp/" + s3+ "' style='height:250px;'/></div>";
+
+        }
+
+        //alert(shtml);
+
+        $("#div_swiper").html(shtml);
+
+        //picture play
+        // 滚动图片
+        $(".swiper-container").swiper({
+            loop: true,
+            autoplay: 2000
+        });
+
+
+
+    }
+    show_spxx_sptp_and_play();
+
+
+
+    function add_to_cart(){
+
+        if(!is_login()){
+            alert('请先登录，然后加入购物车');
+            location="../my";
+            return;
+        }
+
+
+
+        //
+        //alert("add_to_cart");
+
+        var spsl=$("#spsl").val();
+        var jsonObj=get_userinfo_jsonObj();
+        var hyid=jsonObj.hyid;
+        var spid=$("#spid").val();
+
+
+
+        var url =  '/pdd/app/addtocart/'+spid+"|"+hyid+"|"+spsl;
+        var config = {
+            url: url,
+            type: "post",
+            dataType: "text",
+            data: "",
+            beforeSend: function () {
+                // $.modal.loading("正在处理中，请稍后...");
+            },
+            success: function (result) {
+                //alert(result);
+                console.log(result);
+
+                if(result=="1"){
+                    $("#btn_addtocart").css("display","none");
+                    sleep(1000); // 延时函数，单位ms
+                    alert("祝贺你，加入购物车成功！");
+                    sleep(1000); // 延时函数，单位ms
+                    location="../cart";
+                }else{
+                    alert("加入购物车失败!");
+                }
+
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("访问服务器失败1:"+XMLHttpRequest.status+XMLHttpRequest.readyState);
+                console.log("访问服务器失败2:"+textStatus);
+                console.log("访问服务器失败3:"+errorThrown);
+
+                alert('访问服务器失败');
+            }
+        };
+        $.ajax(config);
+
+
+
+
+    }
+
+
+</script>
+
+
+
+
+
+<!--oper userinfo local storage-->
+<script>
+
+    function get_storage_val(itemname){
+        var storage = window.localStorage;
+        var s=storage.getItem(itemname);
+        if(!s){return ""};
+        return s;
+    }
+    function set_storage_val(itemname,val){
+        var storage = window.localStorage;
+        storage.setItem(itemname,val);
+
+    }
+
+
+    function is_login() {
+        var storage = window.localStorage;
+        var pdd_userinfo = storage.getItem("pdd_userinfo");
+
+        if (pdd_userinfo) {
+            if (pdd_userinfo === "") {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+    function logout(){
+        var storage = window.localStorage;
+        storage.setItem("pdd_userinfo","");
+    }
+
+    function get_userinfo_jsonObj(){
+
+        var s1=get_storage_val("pdd_userinfo");
+        s1=s1.replace("[","");
+        s1=s1.replace("]","");
+
+        var dataObj=eval("("+s1+")");
+        return dataObj;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('单区块信息列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse hidden">
+                <!--查询条件form-->
+                <form id="formId" th:object="${oneblockinfo}">
+                    <div class="select-list">
+                        <ul>
+                            <li class='hidden'>
+                                <p>块编码：</p>
+                                <input type="text" id="blockid" name="blockid"  th:field="*{blockid}"/>
+                            </li>
+                           <li>
+                                <p>块编号：</p>
+                                <input type="text" id="blocknumber" name="blocknumber"  th:field="*{blocknumber}"/>
+                            </li>
+                           <li>
+                                <p>数据哈希：</p>
+                                <input type="text" id="datahash" name="datahash"  th:field="*{datahash}"/>
+                            </li>
+                           <li>
+                                <p>前块哈希：</p>
+                                <input type="text" id="previoushash" name="previoushash"  th:field="*{previoushash}"/>
+                            </li>
+                           <li>
+                                <p>通道：</p>
+                                <input type="text" id="channelid" name="channelid"  th:field="*{channelid}"/>
+                            </li>
+                           <li>
+                                <p>信封数量：</p>
+                                <input type="text" id="envelopecount" name="envelopecount"  th:field="*{envelopecount}"/>
+                            </li>
+                           <li>
+                                <p>信封内容：</p>
+                                <input type="text" id="envelopeinfos" name="envelopeinfos"  th:field="*{envelopeinfos}"/>
+                            </li>
+                           <li>
+                                <p>交易数量：</p>
+                                <input type="text" id="transactioncount" name="transactioncount"  th:field="*{transactioncount}"/>
+                            </li>
+                           <li>
+                                <p>交易元数据：</p>
+                                <input type="text" id="transactionsmetadata" name="transactionsmetadata"  th:field="*{transactionsmetadata}"/>
+                            </li>
+                           <li>
+                                <p>区块所有字段：</p>
+                                <input type="text" id="blockallfields" name="blockallfields"  th:field="*{blockallfields}"/>
+                            </li>
+                           <li>
+                                <p>区块头前哈希：</p>
+                                <input type="text" id="blockheaderprevioushash" name="blockheaderprevioushash"  th:field="*{blockheaderprevioushash}"/>
+                            </li>
+                           <li>
+                                <p>区块头数据哈希：</p>
+                                <input type="text" id="blockheaderdatahash" name="blockheaderdatahash"  th:field="*{blockheaderdatahash}"/>
+                            </li>
+                           <li>
+                                <p>区块头序列化尺寸：</p>
+                                <input type="text" id="blockheaderserializedsize" name="blockheaderserializedsize"  th:field="*{blockheaderserializedsize}"/>
+                            </li>
+                           <li>
+                                <p>区块头编号：</p>
+                                <input type="text" id="blockheadernumber" name="blockheadernumber"  th:field="*{blockheadernumber}"/>
+                            </li>
+                           <li>
+                                <p>区块头所有字段：</p>
+                                <input type="text" id="blockheaderallfields" name="blockheaderallfields"  th:field="*{blockheaderallfields}"/>
+                            </li>
+                           <li>
+                                <p>区块体数据量：</p>
+                                <input type="text" id="blockdatadatacount" name="blockdatadatacount"  th:field="*{blockdatadatacount}"/>
+                            </li>
+                           <li>
+                                <p>区块体数据列表：</p>
+                                <input type="text" id="blockdatadatalist" name="blockdatadatalist"  th:field="*{blockdatadatalist}"/>
+                            </li>
+                           <li>
+                                <p>区块体所有字段：</p>
+                                <input type="text" id="blockdataallfields" name="blockdataallfields"  th:field="*{blockdataallfields}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项00：</p>
+                                <input type="text" id="bz00" name="bz00"  th:field="*{bz00}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项01：</p>
+                                <input type="text" id="bz01" name="bz01"  th:field="*{bz01}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项02：</p>
+                                <input type="text" id="bz02" name="bz02"  th:field="*{bz02}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项03：</p>
+                                <input type="text" id="bz03" name="bz03"  th:field="*{bz03}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项04：</p>
+                                <input type="text" id="bz04" name="bz04"  th:field="*{bz04}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项05：</p>
+                                <input type="text" id="bz05" name="bz05"  th:field="*{bz05}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项06：</p>
+                                <input type="text" id="bz06" name="bz06"  th:field="*{bz06}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项07：</p>
+                                <input type="text" id="bz07" name="bz07"  th:field="*{bz07}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项08：</p>
+                                <input type="text" id="bz08" name="bz08"  th:field="*{bz08}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项09：</p>
+                                <input type="text" id="bz09" name="bz09"  th:field="*{bz09}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项10：</p>
+                                <input type="text" id="bz10" name="bz10"  th:field="*{bz10}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项11：</p>
+                                <input type="text" id="bz11" name="bz11"  th:field="*{bz11}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项12：</p>
+                                <input type="text" id="bz12" name="bz12"  th:field="*{bz12}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项13：</p>
+                                <input type="text" id="bz13" name="bz13"  th:field="*{bz13}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项14：</p>
+                                <input type="text" id="bz14" name="bz14"  th:field="*{bz14}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项15：</p>
+                                <input type="text" id="bz15" name="bz15"  th:field="*{bz15}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项16：</p>
+                                <input type="text" id="bz16" name="bz16"  th:field="*{bz16}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项17：</p>
+                                <input type="text" id="bz17" name="bz17"  th:field="*{bz17}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项18：</p>
+                                <input type="text" id="bz18" name="bz18"  th:field="*{bz18}"/>
+                            </li>
+                            <li class='hidden'>
+                                <p>备注项19：</p>
+                                <input type="text" id="bz19" name="bz19"  th:field="*{bz19}"/>
+                            </li>
+
+                             
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="blockchain:oneblockinfo:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="blockchain:oneblockinfo:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="blockchain:oneblockinfo:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="blockchain:oneblockinfo:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="blockchain:oneblockinfo:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+
+     <div class="row col-sm-12" id="divListOneblockinfo">
+
+
+
+         <div id="vertical-timeline" class="vertical-container light-timeline">
+             <div class="vertical-timeline-block">
+                 <div class="vertical-timeline-icon navy-bg">
+                     <i class="fa fa-briefcase"></i>
+                 </div>
+
+                 <div class="vertical-timeline-content">
+                     <h2>会议</h2>
+                     <p>上一年的销售业绩发布会。总结产品营销和销售趋势及销售的现状。
+                     </p>
+                     <a href="#" class="btn btn-sm btn-primary"> 更多信息</a>
+                     <span class="vertical-date">
+                         	今天 <br>
+                         <small>2月3日</small>
+                     </span>
+                 </div>
+             </div>
+
+             <div class="vertical-timeline-block">
+                 <div class="vertical-timeline-icon blue-bg">
+                     <i class="fa fa-file-text"></i>
+                 </div>
+
+                 <div class="vertical-timeline-content">
+                     <h2>给张三发送文档</h2>
+                     <p>发送上年度《销售业绩报告》</p>
+                     <a href="#" class="btn btn-sm btn-success"> 下载文档 </a>
+                     <span class="vertical-date">
+                         	今天 <br>
+                         <small>2月3日</small>
+                     </span>
+                 </div>
+             </div>
+
+             <div class="vertical-timeline-block">
+                 <div class="vertical-timeline-icon lazur-bg">
+                     <i class="fa fa-coffee"></i>
+                 </div>
+
+                 <div class="vertical-timeline-content">
+                     <h2>喝咖啡休息</h2>
+                     <p>喝咖啡啦，啦啦啦~~</p>
+                     <a href="#" class="btn btn-sm btn-info">更多</a>
+                     <span class="vertical-date"> 昨天 <br><small>2月2日</small></span>
+                 </div>
+             </div>
+
+             <div class="vertical-timeline-block">
+                 <div class="vertical-timeline-icon yellow-bg">
+                     <i class="fa fa-phone"></i>
+                 </div>
+
+                 <div class="vertical-timeline-content">
+                     <h2>给李四打电话</h2>
+                     <p>给李四打电话分配本月工作任务</p>
+                     <span class="vertical-date">昨天 <br><small>2月2日</small></span>
+                 </div>
+             </div>
+
+             <div class="vertical-timeline-block">
+                 <div class="vertical-timeline-icon lazur-bg">
+                     <i class="fa fa-user-md"></i>
+                 </div>
+
+                 <div class="vertical-timeline-content">
+                     <h2>公司年会</h2>
+                     <p>发年终奖啦，啦啦啦~~</p>
+                     <span class="vertical-date">前天 <br><small>2月1日</small></span>
+                 </div>
+             </div>
+         </div>d
+
+
+
+
+
+
+
+
+     </div>
+
+
+
+
+
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('blockchain:oneblockinfo:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('blockchain:oneblockinfo:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('blockchain:oneblockinfo:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "blockchain/oneblockinfo";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "单区块信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'blockid',
+                    title: '块编码',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'blocknumber',
+                    title: '块编号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'datahash',
+                    title: '数据哈希',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'previoushash',
+                    title: '前块哈希',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'channelid',
+                    title: '通道',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'envelopecount',
+                    title: '信封数量',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'envelopeinfos',
+                    title: '信封内容',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'transactioncount',
+                    title: '交易数量',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'transactionsmetadata',
+                    title: '交易元数据',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockallfields',
+                    title: '区块所有字段',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockheaderprevioushash',
+                    title: '区块头前哈希',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockheaderdatahash',
+                    title: '区块头数据哈希',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockheaderserializedsize',
+                    title: '区块头序列化尺寸',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockheadernumber',
+                    title: '区块头编号',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockheaderallfields',
+                    title: '区块头所有字段',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockdatadatacount',
+                    title: '区块体数据量',
+                    sortable: true,
+                    visible: true,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockdatadatalist',
+                    title: '区块体数据列表',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'blockdataallfields',
+                    title: '区块体所有字段',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz00',
+                    title: '备注项00',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz01',
+                    title: '备注项01',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz02',
+                    title: '备注项02',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz03',
+                    title: '备注项03',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz04',
+                    title: '备注项04',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz05',
+                    title: '备注项05',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz06',
+                    title: '备注项06',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz07',
+                    title: '备注项07',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz08',
+                    title: '备注项08',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz09',
+                    title: '备注项09',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz10',
+                    title: '备注项10',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz11',
+                    title: '备注项11',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz12',
+                    title: '备注项12',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz13',
+                    title: '备注项13',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz14',
+                    title: '备注项14',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz15',
+                    title: '备注项15',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz16',
+                    title: '备注项16',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz17',
+                    title: '备注项17',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz18',
+                    title: '备注项18',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+                {
+                    field: 'bz19',
+                    title: '备注项19',
+                    sortable: true,
+                    visible: false,
+                    sortable: true
+                },
+
+
+                
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.blockid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.blockid + '\')"><i class="fa fa-remove"></i>删除</a> ');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.blockid + '\')"><i class="fa fa-search"></i>详情</a> ');
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+
+            // $('#blockid').val(''); //块编码
+            // $('#blocknumber').val(''); //块编号
+            // $('#datahash').val(''); //数据哈希
+            // $('#previoushash').val(''); //前块哈希
+            // $('#channelid').val(''); //通道
+            // $('#envelopecount').val(''); //信封数量
+            // $('#envelopeinfos').val(''); //信封内容
+            // $('#transactioncount').val(''); //交易数量
+            // $('#transactionsmetadata').val(''); //交易元数据
+            // $('#blockallfields').val(''); //区块所有字段
+            // $('#blockheaderprevioushash').val(''); //区块头前哈希
+            // $('#blockheaderdatahash').val(''); //区块头数据哈希
+            // $('#blockheaderserializedsize').val(''); //区块头序列化尺寸
+            // $('#blockheadernumber').val(''); //区块头编号
+            // $('#blockheaderallfields').val(''); //区块头所有字段
+            // $('#blockdatadatacount').val(''); //区块体数据量
+            // $('#blockdatadatalist').val(''); //区块体数据列表
+            // $('#blockdataallfields').val(''); //区块体所有字段
+
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+
+
+        function queryJsonArray(){
+            var url= ctx + "blockchain/oneblockinfo/listcom";
+
+            var config = {
+                url: url,
+                type: "post",
+                dataType: "json",
+                data: "",
+                beforeSend: function () {
+                   // $.modal.loading("正在处理中，请稍后...");
+                },
+                success: function(result) {
+                    //debugger;
+                    console.log(result);
+                    // if (typeof callback == "function") {
+                    //     callback(result);
+                    // }
+                    // $.operate.ajaxSuccess(result);
+                    var s=getHtmlDivOneblockinfo(result);
+                    alert(s);
+                    $("#divListOneblockinfo").html(s);
+                }
+            };
+            $.ajax(config)
+        }
+
+        function getHtmlDivOneblockinfo(data){
+            var s="";
+            for(var i=0;i<data.length;i++){
+                s+=getHtmlDivOneblockinfoOneLine(data[i]);
+            }
+            return s;
+        }
+
+        function getHtmlDivOneblockinfoOneLine(line){
+
+
+            var blockid                      =line.blockid                    ;     //').val(''); //块编码
+            var blocknumber                  =line.blocknumber                ;     //').val(''); //块编号
+            var datahash                     =line.datahash                   ;     //').val(''); //数据哈希
+            var previoushash                 =line.previoushash               ;     //').val(''); //前块哈希
+            var channelid                    =line.channelid                  ;      //').val(''); //通道
+            var envelopecount                =line.envelopecount              ;      //').val(''); //信封数量
+            var envelopeinfos                =line.envelopeinfos              ;      //').val(''); //信封内容
+            var transactioncount             =line.transactioncount           ;         //').val(''); //交易数量
+            var transactionsmetadata         =line.transactionsmetadata       ;             //').val(''); //交易元数据
+            var blockallfields               =line.blockallfields             ;       //').val(''); //区块所有字段
+            var blockheaderprevioushash      =line.blockheaderprevioushash    ;                //').val(''); //区块头前哈希
+            var blockheaderdatahash          =line.blockheaderdatahash        ;            //').val(''); //区块头数据哈希
+            var blockheaderserializedsize    =line.blockheaderserializedsize  ;                  //').val(''); //区块头序列化尺寸
+            var blockheadernumber            =line.blockheadernumber          ;          //').val(''); //区块头编号
+            var blockheaderallfields         =line.blockheaderallfields       ;             //').val(''); //区块头所有字段
+            var blockdatadatacount           =line.blockdatadatacount         ;           //').val(''); //区块体数据量
+            var blockdatadatalist            =line.blockdatadatalist          ;          //').val(''); //区块体数据列表
+            var blockdataallfields           =line.blockdataallfields         ;           //').val(''); //区块体所有字段
+
+            var s="";
+            s+=" <div id='vertical-timeline' class='vertical-container light-timeline'>";
+            s+="    <div class='vertical-timeline-block'>";
+            s+="        <div class='vertical-timeline-icon navy-bg'>";
+            s+="             <i class='fa fa-briefcase'></i>";
+            s+="        </div>";
+            s+=" ";
+            s+=" <div class='vertical-timeline-content'>";
+            s+=" <h2>Block Number : "+blocknumber+"</h2>";
+            s+=" <p>data hash: "+datahash+" </p>";
+            s+=" <p>previous hash: "+previoushash+" </p>";
+            s+=" <p>channel : "+channelid+" </p>";
+            s+=" <p>block data count: "+blockdatadatacount+" </p>";
+            s+=" <p>block data list: "+blockdatadatalist+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+            // s+=" <p>data hash: "+datahash+" </p>";
+
+
+            // s+=" <a href='#' class='btn btn-sm btn-primary'> 更多信息</a>";
+            // s+=" <span class='vertical-date'> 今天 <br> <small>2月3日</small></span>";
+            s+="    </div>";
+            s+="</div>";
+            s+="</div>";
+            s+="";
+
+
+            return s;
+
+        }
+
+
+
+
+        queryJsonArray();
+    </script>
+</body>
+</html>

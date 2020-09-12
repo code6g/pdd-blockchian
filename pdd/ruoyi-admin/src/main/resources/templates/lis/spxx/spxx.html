@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <!--头部包含css文件-->
+    <th:block th:include="include :: header('商品信息列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <!--查询条件form-->
+                <form id="formId" th:object="${spxx}">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <p>商品编码：</p>
+                                <input type="text" name="spid"  th:field="*{spid}"/>
+                            </li>
+                            <li>
+                                <p>商品名称：</p>
+                                <input type="text" name="spmc"  th:field="*{spmc}"/>
+                            </li>
+                            <li>
+                                <p>类型编码：</p>
+                                <input type="text" name="lxid"  th:field="*{lxid}"/>
+                            </li>
+                            <li>
+                                <p>类型名称：</p>
+                                <input type="text" name="lxmc"  th:field="*{lxmc}"/>
+                            </li>
+                            <li>
+                                <p>生产日期：</p>
+                                <input type="text" name="scrq"  th:field="*{scrq}"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="lis:spxx:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="lis:spxx:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="lis:spxx:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.detail()" shiro:hasPermission="lis:spxx:detail">
+                    <i class="fa fa-search"></i> 详情
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="lis:spxx:export">
+                    <i class="fa fa-download"></i> 导出
+                 </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+     <!--尾部包含js库-->
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        //用于按钮权限控制
+        var editFlag = [[${@permission.hasPermi('lis:spxx:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('lis:spxx:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('lis:spxx:detail')}]];
+
+        //url权限前缀
+        var prefix = ctx + "lis/spxx";
+
+        $(function() {
+            //bootstrap-table的属性及操作按钮的url属性
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",   //采用post，多Ids的删除
+                exportUrl: prefix + "/export",
+                detailUrl: prefix + "/detail/{id}",
+                modalName: "商品信息",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field : 'spid',
+                    title : '商品编码',
+                    sortable: true,
+                    visible: false
+
+                },
+                {
+                    field : 'spmc', 
+                    title : '商品名称',
+                    sortable: true
+                },
+                {
+                    field : 'lxid', 
+                    title : '类型编码',
+                    sortable: true
+                },
+                {
+                    field : 'lxmc', 
+                    title : '类型名称',
+                    sortable: true
+                },
+                {
+                    field : 'scrq', 
+                    title : '生产日期',
+                    sortable: true
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.spid + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.spid + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        actions.push('<a class="btn btn-primary btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.spid + '\')"><i class="fa fa-search"></i>详情</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            //初始化查询条件赋值
+            initConValue();
+            //按options的内容，执行查询，并获取返回值列表，进行table赋值
+            $.table.init(options);
+
+        });
+        //初始化查询条件赋值
+        function initConValue(){
+            // $('[name="spid"]').val(""); //商品编码
+            // $('[name="spmc"]').val("15"); //商品名称
+            // $('[name="lxid"]').val(""); //类型编码
+            // $('[name="lxmc"]').val(""); //类型名称
+            // $('[name="scrq"]').val(""); //生产日期
+
+        }
+    </script>
+</body>
+</html>

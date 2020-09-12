@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('修改商品信息')" />
+    <th:block th:include="include :: datetimepicker-css" />
+    <th:block th:include="include :: bootstrap-fileinput-css"/>
+    <style type="text/css">
+        input{
+          font-size:12px;
+        }
+        label{
+          font-size:12px;
+        }
+
+    </style>
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-pspxx-edit" th:object="${pspxx}">
+          <div id="div_info" >
+
+
+           </div>
+
+
+           <div style="display:none" id="div_hidden">
+
+
+          </div>
+
+           <!--商品编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->商品编码</label>
+                <div class="col-sm-8">
+                    <input id="spid"  name="spid" th:field="*{spid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--分类编码-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->分类编码</label>
+                <div class="col-sm-8">
+                    <input id="flid"  name="flid" th:field="*{flid}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--分类名称-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><span style="color: red; ">分类名称*</span></label>
+                <div class="col-sm-8">
+                    <input id="flmc" name="flmc" th:field="*{flmc}" class="form-control" type="text" required/> <!---->
+                </div>
+            </div>
+
+           <!--商品名称-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><span style="color: red; ">商品名称*</span></label>
+                <div class="col-sm-8">
+                    <input id="spmc" name="spmc" th:field="*{spmc}" class="form-control" type="text" required/> <!---->
+                </div>
+            </div>
+
+           <!--商品价格-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><span style="color: red; ">商品价格*</span></label>
+                <div class="col-sm-8">
+                    <input id="spjg" name="spjg" th:field="*{spjg}" class="form-control" type="text" required/> <!---->
+                </div>
+            </div>
+
+           <!--商品描述-->
+           <div class="form-group col-sm-6">
+                <label class="col-sm-4 control-label"><span style="color: red; ">商品描述*</span></label>
+                <div class="col-sm-8">
+                    <input id="spms" name="spms" th:field="*{spms}" class="form-control" type="text" required/> <!---->
+                </div>
+            </div>
+
+
+           <!--商品图片-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label  left"><!--span style="color: red; ">*</span-->商品图片</label>
+                        <div class="col-sm-9">
+                            <textarea id="sptp"  name="sptp" maxlength="500" class="form-control" rows="3" >[[*{sptp}]]</textarea><!--required--> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <!--商品状态-->
+           <div class="form-group col-sm-6" hidden>
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->商品状态</label>
+                <div class="col-sm-8">
+                    <input id="spzt" name="spzt" th:field="*{spzt}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项00-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项00</label>
+                <div class="col-sm-8">
+                    <input id="bz00"  name="bz00" th:field="*{bz00}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项01-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项01</label>
+                <div class="col-sm-8">
+                    <input id="bz01"  name="bz01" th:field="*{bz01}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项02-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项02</label>
+                <div class="col-sm-8">
+                    <input id="bz02"  name="bz02" th:field="*{bz02}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项03-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项03</label>
+                <div class="col-sm-8">
+                    <input id="bz03"  name="bz03" th:field="*{bz03}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项04-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项04</label>
+                <div class="col-sm-8">
+                    <input id="bz04"  name="bz04" th:field="*{bz04}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项05-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项05</label>
+                <div class="col-sm-8">
+                    <input id="bz05"  name="bz05" th:field="*{bz05}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项06-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项06</label>
+                <div class="col-sm-8">
+                    <input id="bz06"  name="bz06" th:field="*{bz06}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项07-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项07</label>
+                <div class="col-sm-8">
+                    <input id="bz07"  name="bz07" th:field="*{bz07}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项08-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项08</label>
+                <div class="col-sm-8">
+                    <input id="bz08"  name="bz08" th:field="*{bz08}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项09-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项09</label>
+                <div class="col-sm-8">
+                    <input id="bz09"  name="bz09" th:field="*{bz09}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项10-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项10</label>
+                <div class="col-sm-8">
+                    <input id="bz10"  name="bz10" th:field="*{bz10}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项11-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项11</label>
+                <div class="col-sm-8">
+                    <input id="bz11"  name="bz11" th:field="*{bz11}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项12-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项12</label>
+                <div class="col-sm-8">
+                    <input id="bz12"  name="bz12" th:field="*{bz12}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项13-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项13</label>
+                <div class="col-sm-8">
+                    <input id="bz13"  name="bz13" th:field="*{bz13}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项14-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项14</label>
+                <div class="col-sm-8">
+                    <input id="bz14"  name="bz14" th:field="*{bz14}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项15-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项15</label>
+                <div class="col-sm-8">
+                    <input id="bz15"  name="bz15" th:field="*{bz15}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项16-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项16</label>
+                <div class="col-sm-8">
+                    <input id="bz16"  name="bz16" th:field="*{bz16}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项17-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项17</label>
+                <div class="col-sm-8">
+                    <input id="bz17"  name="bz17" th:field="*{bz17}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项18-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项18</label>
+                <div class="col-sm-8">
+                    <input id="bz18"  name="bz18" th:field="*{bz18}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+           <!--备注项19-->
+           <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label"><!--span style="color: red; ">*</span-->备注项19</label>
+                <div class="col-sm-8">
+                    <input id="bz19"  name="bz19" th:field="*{bz19}" class="form-control" type="text" /> <!--required-->
+                </div>
+            </div>
+
+ 
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <th:block th:include="include :: bootstrap-fileinput-js"/>
+    <script type="text/javascript">
+        var prefix = ctx + "pdd/pspxx";
+        $("#form-pspxx-edit").validate({
+            focusCleanup: true
+        });
+        updateValueBeforeEdit();
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                updateValueAfterEdit();
+                $.operate.save(prefix + "/edit", $('#form-pspxx-edit').serialize());
+            }
+        }
+        //对编辑前的信息进行更新赋值
+        function updateValueBeforeEdit(){
+            // $('#spid').val(''); //商品编码
+            // $('#flid').val(''); //分类编码
+            // $('#flmc').val(''); //分类名称
+            // $('#spmc').val(''); //商品名称
+            // $('#spjg').val(''); //商品价格
+            // $('#spms').val(''); //商品描述
+            // $('#sptp').val(''); //商品图片
+            // $('#spzt').val(''); //商品状态
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+
+        }
+        //对编辑后的信息进行更新赋值
+        function updateValueAfterEdit(){
+            // $('#spid').val(''); //商品编码
+            // $('#flid').val(''); //分类编码
+            // $('#flmc').val(''); //分类名称
+            // $('#spmc').val(''); //商品名称
+            // $('#spjg').val(''); //商品价格
+            // $('#spms').val(''); //商品描述
+            // $('#sptp').val(''); //商品图片
+            // $('#spzt').val(''); //商品状态
+            // $('#bz00').val(''); //备注项00
+            // $('#bz01').val(''); //备注项01
+            // $('#bz02').val(''); //备注项02
+            // $('#bz03').val(''); //备注项03
+            // $('#bz04').val(''); //备注项04
+            // $('#bz05').val(''); //备注项05
+            // $('#bz06').val(''); //备注项06
+            // $('#bz07').val(''); //备注项07
+            // $('#bz08').val(''); //备注项08
+            // $('#bz09').val(''); //备注项09
+            // $('#bz10').val(''); //备注项10
+            // $('#bz11').val(''); //备注项11
+            // $('#bz12').val(''); //备注项12
+            // $('#bz13').val(''); //备注项13
+            // $('#bz14').val(''); //备注项14
+            // $('#bz15').val(''); //备注项15
+            // $('#bz16').val(''); //备注项16
+            // $('#bz17').val(''); //备注项17
+            // $('#bz18').val(''); //备注项18
+            // $('#bz19').val(''); //备注项19
+            
+        }
+    </script>
+
+     <!--设置日期/时间 输入框-->
+     <script>
+         //$("#jssj").attr("placeholder","yyyy-MM-dd HH:mm:ss"); $("#jssj").datetimepicker({autoclose:true,format:"yyyy-mm-dd hh:ii:ss" }); //接收时间
+         //$("#bzsj").attr("placeholder","yyyy-MM-dd"); $("#bzsj").datetimepicker({autoclose:true,format:"yyyy-mm-dd",minView:"day" }); //签订日期
+
+
+      </script>
+	  	  
+     <!-- refer 引用函数 -->
+     <script>
+	 
+
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>区块链-拼爹爹商城APP-订单</title>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+    <link th:href="@{/favicon.ico}" rel="stylesheet"/>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- begin jqueryWeUI 头部CSS配置-->
+    <link rel="stylesheet" th:href="@{/weui/lib/weui.min.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/jquery-weui.css}">
+    <link rel="stylesheet" th:href="@{/weui/css/demos.css}">
+    <!--end jqueryWeUI 头部CSS配置-->
+
+    <link rel="stylesheet" th:href="@{/weui/jdavid/a.view.css}">
+
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 160px;
+        }
+
+        .swiper-container img {
+            display: block;
+            width: 100%;
+            height: 160px;
+        }
+    </style>
+
+
+    <style type="text/css">
+
+
+    </style>
+</head>
+
+
+<body class=" ">
+
+
+<input id="curHyid" style="display:none;"/>
+<input id="curHymc" style="display:none;"/>
+
+<!-- begin 页头-->
+<header class='demos-header-lw'>
+    <div class="weui-flex">
+
+        <div class="weui-flex__item">
+            <div class="placeholder-lw" id="divTitle">区块链-拼爹爹商城APP-订单</div>
+        </div>
+
+    </div>
+</header>
+<!-- end 页头-->
+
+
+<!--spxx list-->
+<div id="div_order">
+
+    <div style="font-size: 20px; line-height: 20px; height:80px; padding: 20px; text-align: center;">订单是空的！</div>
+
+
+    <!--<div class="weui-flex" style="border-top:1px solid #eee;">-->
+    <!--<div class="weui-flex-item">-->
+    <!--<img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">-->
+    <!--</div>-->
+    <!--<div class="weui-flex-item" style="margin:6px;">-->
+    <!--每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>-->
+    <!--<span class="weui-badge">退货包运费</span> <br/>-->
+    <!--¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="weui-flex" style="border-top:1px solid #eee;">-->
+    <!--<div class="weui-flex-item">-->
+    <!--<img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">-->
+    <!--</div>-->
+    <!--<div class="weui-flex-item" style="margin:6px;">-->
+    <!--每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>-->
+    <!--<span class="weui-badge">退货包运费</span> <br/>-->
+    <!--¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="weui-flex" style="border-top:1px solid #eee;">-->
+    <!--<div class="weui-flex-item">-->
+    <!--<img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">-->
+    <!--</div>-->
+    <!--<div class="weui-flex-item" style="margin:6px;">-->
+    <!--每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>-->
+    <!--<span class="weui-badge">退货包运费</span> <br/>-->
+    <!--¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="weui-flex" style="border-top:1px solid #eee;">-->
+    <!--<div class="weui-flex-item">-->
+    <!--<img src="../../weui/images/spxx/1.jpg" style="width:94%;height:180px;margin:6px;">-->
+    <!--</div>-->
+    <!--<div class="weui-flex-item" style="margin:6px;">-->
+    <!--每日坚果混合坚果10/20/30包 孕妇儿童干果休闲<br/><br/>-->
+    <!--<span class="weui-badge">退货包运费</span> <br/>-->
+    <!--¥<span style="color:red;font-size:24px;">18.8</span> <span style="color:lightgray;">已拼10万+件</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+
+</div>
+<!--spxx list end-->
+
+
+<!--<div class="weui-flex" style="border-top:1px solid #eee;" id="div_button">-->
+
+
+    <!--<div class="weui-flex-item" style="margin:0px; text-align: right; width: 70%">-->
+        <!--<div class="button_sp_area" style="text-align: right;">-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="weui-flex-item" style="margin:0px; text-align: right;width: 30%">-->
+
+        <!--<div class="button_sp_area" style="text-align: right;">-->
+
+            <!--<a id="btn_submit" href="javascript:submit_order();" class="weui-btn weui-btn_warn "-->
+               <!--style="width:100%; border-radius: 0px">提交订单</a>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+
+<!-- begin 底部tabbar-->
+<div class="weui-tabbar weui-tabbar-lw">
+
+    <a href="./home" class="weui-tabbar__item weui-bar__item--on" id="aDown1">
+        <!--<span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+        -->
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i1.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">商品</p>正在查询区块链，请稍候...
+    </a>
+    <a href="./cart" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/gwc.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">购物车</p>
+    </a>
+
+    <a href="./order" class="weui-tabbar__item" id="aDown2">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i2.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">订单</p>
+    </a>
+
+    <a href="./my" class="weui-tabbar__item" id="aDown4">
+        <div class="weui-tabbar__icon">
+            <img th:src="@{/weui/images/i4.png}" alt="">
+        </div>
+        <p class="weui-tabbar__label">我的</p>
+    </a>
+
+</div>
+<!-- end 底部tabbar-->
+
+
+<!-- begin jqueryWeUI 底部js配置-->
+<script th:src="@{/weui/lib/jquery-2.1.4.min.js}"></script>
+<script th:src="@{/weui/lib/fastclick.js}"></script>
+<script>
+    $(function () {
+        FastClick.attach(document.body);
+    });
+</script>
+<script th:src="@{/weui/js/jquery-weui.min.js}"></script>
+<!-- end jqueryWeUI 底部js配置-->
+
+<script th:src="@{/weui/js/swiper.js}"></script>
+<script th:src="@{/weui/jdavid/e.util.js}"></script>
+<script th:src="@{/weui/jdavid/f.request.js}"></script>
+<script th:src="@{/weui/jdavid/z.proj.js}"></script>
+
+<!--oper userinfo local storage-->
+<script>
+
+    function get_storage_val(itemname) {
+        var storage = window.localStorage;
+        var s = storage.getItem(itemname);
+        if (!s) {
+            return ""
+        }
+        ;
+        return s;
+    }
+
+    function set_storage_val(itemname, val) {
+        var storage = window.localStorage;
+        storage.setItem(itemname, val);
+
+    }
+
+
+    function is_login() {
+        var storage = window.localStorage;
+        var pdd_userinfo = storage.getItem("pdd_userinfo");
+
+        if (pdd_userinfo) {
+            if (pdd_userinfo === "") {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    function logout() {
+        var storage = window.localStorage;
+        storage.setItem("pdd_userinfo", "");
+    }
+
+    function get_userinfo_jsonObj() {
+
+        var s1 = get_storage_val("pdd_userinfo");
+        s1 = s1.replace("[", "");
+        s1 = s1.replace("]", "");
+
+        var dataObj = eval("(" + s1 + ")");
+        return dataObj;
+    }
+</script>
+
+
+<!--sleep function -->
+<script>
+
+    //--sleep-------------------
+    var sleep = function (time) {
+        var startTime = new Date().getTime() + parseInt(time, 10);
+        while (new Date().getTime() < startTime) {
+        }
+    };
+    //sleep(1000); // 延时函数，单位ms
+
+    //--end sleep-------------------
+
+</script>
+
+
+<script>
+
+
+
+
+    function query_and_show_order() {
+
+        if (!is_login()) {
+            alert('请先登录，然后查看订单');
+            location = "./my";
+            return;
+        }
+        $("#div_order").html("<div style=\"font-size: 20px; line-height: 20px; height:80px; padding: 20px; text-align: center;\">正在查询区块链，请稍候...</div>");
+
+
+        var jsonObj = get_userinfo_jsonObj();
+        var hyid = jsonObj.hyid;
+
+        var url = '/pdd/app/orderlist/' + hyid;
+        var config = {
+            url: url,
+            type: "post",
+            dataType: "text",
+            data: "",
+            beforeSend: function () {
+                // $.modal.loading("正在处理中，请稍后...");
+            },
+            success: function (result) {
+                //
+                if (result == "[]") {
+                    $("#btn_submit").css("display", "none");
+                    $("#div_cart").html("<div style=\"font-size: 20px; line-height: 20px; height:80px; padding: 20px; text-align: center;\">order是空的！</div>");
+
+                    return;
+                }
+
+                // alert(result);
+                console.log(result);
+                show_order_list(result);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("访问服务器失败1:" + XMLHttpRequest.status + XMLHttpRequest.readyState);
+                console.log("访问服务器失败2:" + textStatus);
+                console.log("访问服务器失败3:" + errorThrown);
+
+                alert('访问服务器失败');
+            }
+        };
+        //sleep(3000);
+        $.ajax(config);
+
+    }
+
+
+    function get_sptp(sptp) {
+        var s1 = sptp
+        var s2 = s1.split(";");
+        for (var i = 0; i < s2.length; i++) {
+            var s3 = s2[i];
+
+            if (s3.trim() != "") {
+
+                return "/profile/spzp/" + s3;
+            }
+            return "../../weui/images/spxx/1.jpg";
+            //$("#"+s3).css("border","2px solid red");
+            // $("[id='"+s3+"']").css("border","4px solid red");
+            //alert($("#"+s3).id);
+        }
+
+    }
+
+    function show_order_list(jsonStr) {
+
+        var jsonObj = JSON.parse(jsonStr);//转换为json对象
+        var s1 = "";
+        for (var i = 0; i < jsonObj.length; i++) {
+            //alert(jsonObj[i].spmc);  //取json中的值
+            // ddid	订单编码
+            // ddbh	订单编号
+            // hyid	会员编码
+            // hymc	会员名称
+            // spsl	商品数量
+            // jgzj	价格总计
+            // ddzt	订单状态
+            // xdsj	下单时间
+            // xdsm	下单说明
+            // zfqd	支付渠道
+            // zfzh	支付账号
+            // zfry	支付人
+            // zfsj	支付时间
+            // zfsm	支付说明
+            // shry	收货人
+            // shdz	收货地址
+            // shdh	收货人电话
+            // psry	配送人
+            // pssj	配送时间
+            // pssm	配送说明
+            // qsry	签收人
+            // qssj	签收时间
+            // qssm	签收说明
+            // pjnr	评价内容
+            // pjsj	评价时间
+
+            var  ddid= jsonObj[i].ddid;
+            var  ddbh= jsonObj[i].ddbh;
+            var  hyid= jsonObj[i].hyid;
+            var  hymc= jsonObj[i].hymc;
+            var  spsl= jsonObj[i].spsl;
+            var  jgzj= jsonObj[i].jgzj;
+            var  ddzt= jsonObj[i].ddzt;
+            var  xdsj= jsonObj[i].xdsj;
+            var  xdsm= jsonObj[i].xdsm;
+            var  zfqd= jsonObj[i].zfqd;
+            var  zfzh= jsonObj[i].zfzh;
+            var  zfry= jsonObj[i].zfry;
+            var  zfsj= jsonObj[i].zfsj;
+            var  zfsm= jsonObj[i].zfsm;
+            var  shry= jsonObj[i].shry;
+            var  shdz= jsonObj[i].shdz;
+            var  shdh= jsonObj[i].shdh;
+            var  psry= jsonObj[i].psry;
+            var  pssj= jsonObj[i].pssj;
+            var  pssm= jsonObj[i].pssm;
+            var  qsry= jsonObj[i].qsry;
+            var  qssj= jsonObj[i].qssj;
+            var  qssm= jsonObj[i].qssm;
+            var  pjnr= jsonObj[i].pjnr;
+            var  pjsj= jsonObj[i].pjsj;
+            var  ddmx= jsonObj[i].ddmx;
+
+            //pddxx.setDdid(""); //订单编码
+            //pddxx.setDdbh(""); //订单编号
+            //pddxx.setHyid(""); //会员编码
+            //pddxx.setHymc(""); //会员名称
+            //pddxx.setSpsl(""); //商品数量
+            //pddxx.setJgzj(""); //价格总计
+            //pddxx.setDdzt(""); //订单状态
+            //pddxx.setXdsj(""); //下单时间
+            //pddxx.setXdsm(""); //下单说明
+            //pddxx.setZfqd(""); //支付渠道
+            //pddxx.setZfzh(""); //支付账号
+            //pddxx.setZfry(""); //支付人
+            //pddxx.setZfsj(""); //支付时间
+            //pddxx.setZfsm(""); //支付说明
+            //pddxx.setShry(""); //收货人
+            //pddxx.setShdz(""); //收货地址
+            //pddxx.setShdh(""); //收货人电话
+            //pddxx.setPsry(""); //配送人
+            //pddxx.setPssj(""); //配送时间
+            //pddxx.setPssm(""); //配送说明
+            //pddxx.setQsry(""); //签收人
+            //pddxx.setQssj(""); //签收时间
+            //pddxx.setQssm(""); //签收说明
+            //pddxx.setPjnr(""); //评价内容
+            //pddxx.setPjsj(""); //评价时间
+
+
+
+            s1 += "<br/> <hr/>";
+            s1 += "<div class='weui-flex' style='border-top:0px solid #ccc; background-color:;' id='div_item_"+ddid+"'>";
+
+            s1 +="【订单】 &nbsp;&nbsp;"+ddbh+"  &nbsp;&nbsp;&nbsp;&nbsp;  <br/>";
+            s1 +="【数量】 &nbsp;&nbsp;"+spsl+"  &nbsp;&nbsp;&nbsp;&nbsp;  <br/>";
+            s1 +="【价格】 &nbsp;&nbsp;"+jgzj+"  <br/> ";
+
+            s1 +=" 【状态】 &nbsp;&nbsp;"+ddzt+"&nbsp;&nbsp;&nbsp;&nbsp; <br/>";
+            s1 +=" 【时间】 &nbsp;&nbsp;"+xdsj+"  ";
+            s1 += "</div>";
+
+
+            s1+=get_ddxm_list(ddmx);
+
+            // s1 += "    <div class='weui-flex-item' style='width:50%;'>";
+            // s1 += "    <img src='" + get_sptp(1) + "' style='width:94%;height:180px;margin:6px;'>";
+            // s1 += "    </div>";
+            // s1 += "    <div class='weui-flex-item' style='margin:6px;width:50%;'>";
+            // s1 += "    " + spmc + "" + "<br/>";
+            // s1 += "    单价:&nbsp;&nbsp;¥<span style='color:red;font-size:18px;'>" + spjg + "</span>&nbsp;&nbsp;&nbsp;&nbsp;";
+            // s1 += "    数量:&nbsp;&nbsp;  <span style='color:red;font-size:18px;'>" + spsl + " </span><br/>";
+            // s1 += "    小计:&nbsp;&nbsp;¥<span style='color:red;font-size:24px;'>" + jgxj + "</span> <span style='color:lightgray;'></span><br/><br/>";
+            // s1 += "    <a href=\"javascript:delete_cart('" + gwid + "');\" class=\"weui-btn weui-btn_mini weui-btn_warn \" style=\"width:30%; \">删除</a>";
+            // s1 += "   </div>";
+            s1 += " <hr/>";
+        }
+
+        $("#div_order").html(s1);
+        //console.log(jsonObj)
+        // var jsonStr1 = JSON.stringify(jsonObj)
+        //console.log(jsonStr1+"jsonStr1")
+    }
+
+
+    function get_ddxm_list(ddmx){
+        var s1=ddmx.replace(/\^/g,'\"');
+        //alert(s1);
+
+        var s2="";
+        var jsonObj = JSON.parse(s1);//转换为json对象
+
+        // mxid	明细编码
+        // ddid	订单编码
+        // ddbh	订单编号
+        // hyid	会员编码
+        // spid	商品编码
+        // spmc	商品名称
+        // spsl	商品数量
+        // spjg	商品价格
+        // jgxj	价格小计
+        // mxsm	明细说明
+
+
+        for (var i = 0; i < jsonObj.length; i++) {
+            s2 += "<div class='weui-flex' style='border-top:1px solid #eee;' id='div_item_"+jsonObj[i].mxid+"'>";
+
+            s2 += "  <div class='weui-flex-item' style='width:50%;'>";
+            s2 += "    <img src='" + get_sptp(jsonObj[i].mxsm) + "' style='width:94%;height:180px;margin:6px;'>";
+            s2 += "   </div>";
+            s2 += "   <div class='weui-flex-item' style='margin:6px;width:50%;'>";
+            s2 += "    " + jsonObj[i].spmc + "" + "<br/>";
+            s2 += "    单价:&nbsp;&nbsp;¥<span style='color:red;font-size:18px;'>" + jsonObj[i].spjg + "</span>&nbsp;&nbsp;&nbsp;&nbsp;";
+            s2 += "    数量:&nbsp;&nbsp;  <span style='color:red;font-size:18px;'>" + jsonObj[i].spsl + " </span><br/>";
+            s2 += "    小计:&nbsp;&nbsp;¥<span style='color:red;font-size:24px;'>" + jsonObj[i].jgxj + "</span> <span style='color:lightgray;'></span><br/><br/>";
+            // s2 += "    <a href=\"javascript:delete_cart('" + gwid + "');\" class=\"weui-btn weui-btn_mini weui-btn_warn \" style=\"width:30%; \">删除</a>";
+            s2 += "   </div>";
+
+            s2+="</div>";
+        }
+
+        return s2;
+
+
+    }
+
+
+    query_and_show_order();
+
+</script>
+
+
+<script>
+    function delete_cart(gwid) {
+        //$("#div_item_"+gwid).css("display","none");
+
+
+        //return;
+
+        var url = '/pdd/app/deletecart/' + gwid;
+        var config = {
+            url: url,
+            type: "post",
+            dataType: "text",
+            data: "",
+            beforeSend: function () {
+                // $.modal.loading("正在处理中，请稍后...");
+            },
+            success: function (result) {
+                //alert(result);
+                console.log(result);
+                if (result != "1") {
+                    alert("删除失败");
+                    return;
+                }
+
+                $("#div_item_"+gwid).css("display","none");
+
+                //query_and_show_cart();
+
+                // if(result=="[]"){
+                //     alert("账号/密码 错误！");
+                //     return;
+                // }
+                //
+                // set_storage_val("pdd_userinfo",result);
+                // show_userinfo();
+                // alert("祝贺你，登录成功！");
+                //location="../cart";
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("访问服务器失败1:" + XMLHttpRequest.status + XMLHttpRequest.readyState);
+                console.log("访问服务器失败2:" + textStatus);
+                console.log("访问服务器失败3:" + errorThrown);
+
+                alert('访问服务器失败');
+            }
+        };
+        $.ajax(config);
+
+
+    }
+
+    function submit_order() {
+        //alert("submit_order");
+
+
+
+        var jsonObj = get_userinfo_jsonObj();
+        var hyid = jsonObj.hyid;
+
+        var url = '/pdd/app/submitorder/' + hyid;
+        var config = {
+            url: url,
+            type: "post",
+            dataType: "text",
+            data: "",
+            beforeSend: function () {
+                // $.modal.loading("正在处理中，请稍后...");
+            },
+            success: function (result) {
+                //alert(result);
+                console.log(result);
+                if (result == "1") {
+                    sleep(1000);
+                    alert("提交订单成功!");
+                    $("#div_cart").css("display","none");
+                    $("#div_button").css("display","none");
+
+                    sleep(1000);
+                    // location="./order";
+                    return;
+                }else{
+                    alert("提交订单失败!");
+                }
+
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                console.log("访问服务器失败1:" + XMLHttpRequest.status + XMLHttpRequest.readyState);
+                console.log("访问服务器失败2:" + textStatus);
+                console.log("访问服务器失败3:" + errorThrown);
+
+                alert('访问服务器失败');
+            }
+        };
+        $.ajax(config);
+
+    }
+
+
+</script>
+
+
+</body>
+</html>
