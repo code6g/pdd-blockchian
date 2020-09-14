@@ -1,6 +1,24 @@
-# 拼爹爹区块链项目
+# 拼爹爹区块链项目 pdd-bolckchain shopping app
 
-#### 介绍
+
+
+
+
+
+#### 介绍 reduce
+牛哥的区块链项目【拼爹爹电商app】开源上线地址（码云）：
+code6g blockchain project pdd-blockchian shopping app, the open source address（gitee）:
+https://gitee.com/qq1325821989/pdd-blockchain
+
+牛哥的区块链项目【拼爹爹电商app】github开源地址是：
+code6g blockchain project pdd-blockchian shopping app, the open source address（github）:
+https://github.com/code6g/pdd-blockchian
+
+作者：牛哥 qq和wx：1325821989
+author：code6g，qq and weixin is 1325821989
+20年开发经验，15年技术总监任职，现在主要在开发java的springboot，大数据，AI，区块链等产品
+code6g have work in programming for 20 years；and work as CTO for 15 years,now developing java,bigdata,AI,blockchain project and products;
+
 手机购物，全生命周期采用区块链进行支持，区块链采用hyperledger fabric1.4，技术框架，fabric-go-springboot
 
 #### 系统演示
