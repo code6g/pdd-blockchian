@@ -1,27 +1,37 @@
 # 拼爹爹区块链项目 pdd-bolckchain shopping app
 
-
-
-
-
+ 
 
 #### 介绍 reduce
+
+===================================================== 
+
+【作者】：牛哥 qq和wx：1325821989 邮箱：1325821989@qq.com qq群：861213825 
+20年开发经验，15年技术总监任职，现在主要在开发java的springboot，大数据，AI，区块链等产品
+
+【地址】：
 牛哥的区块链项目【拼爹爹电商app】开源上线地址（码云）：
+https://gitee.com/qq1325821989/pdd-blockchain
+牛哥的区块链项目【拼爹爹电商app】github开源地址是：
+https://github.com/code6g/pdd-blockchian
+
+===================================================== 
+
+【author】：code6g，qq and weixin is 1325821989 ，qq group is 861213825；email is 1325821989@qq.com。
+code6g have work in programming for 20 years；and work as CTO for 15 years,now developing java,bigdata,AI,blockchain project and products;
+
+【Address】：
 code6g blockchain project pdd-blockchian shopping app, the open source address（gitee）:
 https://gitee.com/qq1325821989/pdd-blockchain
 
-牛哥的区块链项目【拼爹爹电商app】github开源地址是：
 code6g blockchain project pdd-blockchian shopping app, the open source address（github）:
 https://github.com/code6g/pdd-blockchian
 
-作者：牛哥 qq和wx：1325821989
-author：code6g，qq and weixin is 1325821989
-20年开发经验，15年技术总监任职，现在主要在开发java的springboot，大数据，AI，区块链等产品
-code6g have work in programming for 20 years；and work as CTO for 15 years,now developing java,bigdata,AI,blockchain project and products;
+===================================================== 
 
-手机购物，全生命周期采用区块链进行支持，区块链采用hyperledger fabric1.4，技术框架，fabric-go-springboot
 
-#### 系统演示
+
+#### 系统演示 show
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132050_4732d5bc_5537651.png "2020-09-12_113954.png")
 ![输入图片说明](https://images.gitee.com/uploads/images/2020/0912/132100_7e6fe132_5537651.png "2020-09-12_114002.png")
@@ -50,7 +60,7 @@ code6g have work in programming for 20 years；and work as CTO for 15 years,now 
 
 
 
-开发环境：
+开发环境：develop environment：
 
 
 - Centos7b3
@@ -64,10 +74,10 @@ code6g have work in programming for 20 years；and work as CTO for 15 years,now 
 - 
 
 
-#### 软件架构
-区块链网络：hyperledger fabric 1.4.0
-智能合约开发：go语言
-前台app，及管理端：java，springboot；
+#### 软件架构 soft struts
+区块链网络：hyperledger fabric 1.4.0 for blockchain network
+智能合约开发：go语言 go for chaincode
+前台app，及管理端：java，springboot； java springboot for front app，and management side；
 
 
 
